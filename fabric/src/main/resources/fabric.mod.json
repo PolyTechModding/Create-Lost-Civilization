@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "create_lost_civilization",
+  "version": "${version}",
+
+  "name": "Create Lost Civilization",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "All Rights Reserved",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.polytechmodding.create_lost_civilization.fabric.CreateLostCivilizationFabric"
+    ]
+  },
+  "mixins": [
+    "create_lost_civilization.mixins.json",
+    "create_lost_civilization-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "minecraft": ">=1.20.4"
+  }
+}
