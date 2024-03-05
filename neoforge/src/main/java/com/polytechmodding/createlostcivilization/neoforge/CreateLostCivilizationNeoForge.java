@@ -1,15 +1,13 @@
-package com.polytechmodding.createlostcivilization.forge;
+package com.polytechmodding.createlostcivilization.neoforge;
 
-import dev.architectury.platform.forge.EventBuses;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(CreateLostCivilization.MOD_ID)
-public class CreateLostCivilizationForge {
-    public CreateLostCivilizationForge() {
+public class CreateLostCivilizationNeoForge {
+    public CreateLostCivilizationNeoForge() {
 		// Submit our event bus to let architectury register our content on the right time
-        EventBuses.registerModEventBus(CreateLostCivilization.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
+        // EventBuses.registerModEventBus(CreateLostCivilization.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         CreateLostCivilization.init();
     }
 }

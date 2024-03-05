@@ -1,7 +1,7 @@
 package com.polytechmodding.createlostcivilization.forge;
 
-import dev.architectury.platform.forge.EventBuses;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
+import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 

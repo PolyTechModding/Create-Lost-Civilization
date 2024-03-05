@@ -23,6 +23,16 @@ subprojects {
         maven("https://maven.fabricmc.net/")
         maven("https://maven.minecraftforge.net/")
         maven("https://maven.neoforged.net/releases/")
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url = uri("https://api.modrinth.com/maven")
+                }
+            }
+            filter { 
+                includeGroup("maven.modrinth")
+            }
+        }
     }
 
     @Suppress("UnstableApiUsage")

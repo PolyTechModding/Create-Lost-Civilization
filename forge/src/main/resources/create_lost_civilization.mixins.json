@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.polytechmodding.create_lost_civilization.forge.mixin",
+  "package": "com.polytechmodding.createlostcivilization.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],

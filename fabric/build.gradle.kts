@@ -19,14 +19,29 @@ configurations {
 
 loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
-}
+    runs.create("datagen") {
+        client()
+        name("Data Generation")
+        vmArg("-Dfabric-api.datagen")
+        vmArg("-Dfabric-api.datagen.output-dir=${project(":common").file("src/main/generated/resources").absolutePath}")
+        vmArg("-Dfabric-api.datagen.modid=create_lost_civilization")
 
-// Fabric Datagen Gradle config.  Remove if not using Fabric datagen
-fabricApi.configureDataGeneration()
+        runDir("build/datagen")
+    }
+}
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
+    modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
+
+    modLocalRuntime("maven.modrinth:sodium:mc${project.properties["minecraft_version"]}-${project.properties["sodium_version"]}")
+    modLocalRuntime("maven.modrinth:iris:${project.properties["iris_version"]}+${project.properties["minecraft_version"]}")
+    modLocalRuntime("maven.modrinth:modmenu:${project.properties["modmenu_version"]}")
+    modLocalRuntime("maven.modrinth:reeses-sodium-options:mc${project.properties["minecraft_version"]}-${project.properties["sodium_options_version"]}")
+    modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
+    modLocalRuntime("maven.modrinth:wthit:${project.properties["fabric_wthit_version"]}")
+    modLocalRuntime("maven.modrinth:badpackets:fabric-${project.properties["badpackets_version"]}")
 
     "common"(project(":common", "namedElements")) { isTransitive = false }
     "shadowCommon"(project(":common", "transformProductionFabric")) { isTransitive = false }

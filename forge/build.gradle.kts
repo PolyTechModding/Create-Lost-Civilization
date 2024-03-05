@@ -24,21 +24,17 @@ loom {
         convertAccessWideners.set(true)
         extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
 
-        mixinConfig("examplemod-common.mixins.json")
-        mixinConfig("examplemod.mixins.json")
-    }
-
-    // Forge Datagen Gradle config.  Remove if not using Forge datagen
-    runs.create("datagen") {
-        data()
-        programArgs("--all", "--mod", "examplemod")
-        programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
-        programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
+        mixinConfig("create_lost_civilization-common.mixins.json")
+        mixinConfig("create_lost_civilization.mixins.json")
     }
 }
 
 dependencies {
     forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
+    modApi("dev.architectury:architectury-forge:${project.properties["architectury_version"]}")
+    modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
+    modLocalRuntime("maven.modrinth:wthit:${project.properties["forge_wthit_version"]}")
+    modLocalRuntime("maven.modrinth:badpackets:forge-${project.properties["badpackets_version"]}")
 
     "common"(project(":common", "namedElements")) { isTransitive = false }
     "shadowCommon"(project(":common", "transformProductionForge")) { isTransitive = false }

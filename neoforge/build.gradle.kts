@@ -19,19 +19,14 @@ configurations {
 
 loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
-
-
-    // NroForge Datagen Gradle config.  Remove if not using NeoForge datagen
-    runs.create("datagen") {
-        data()
-        programArgs("--all", "--mod", "examplemod")
-        programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
-        programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
-    }
 }
 
 dependencies {
     neoForge("net.neoforged:neoforge:${project.properties["neoforge_version"]}")
+    modApi("dev.architectury:architectury-neoforge:${project.properties["architectury_version"]}")
+    modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
+    modLocalRuntime("maven.modrinth:wthit:${project.properties["neoforge_wthit_version"]}")
+    modLocalRuntime("maven.modrinth:badpackets:neo-${project.properties["badpackets_version"]}")
 
     "common"(project(":common", "namedElements")) { isTransitive = false }
     "shadowCommon"(project(":common", "transformProductionNeoForge")) { isTransitive = false }
