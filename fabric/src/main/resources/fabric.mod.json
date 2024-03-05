@@ -14,7 +14,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.polytechmodding.create_lost_civilization.fabric.CreateLostCivilizationFabric"
+      "com.polytechmodding.createlostcivilization.fabric.CreateLostCivilizationFabric"
     ]
   },
   "mixins": [
