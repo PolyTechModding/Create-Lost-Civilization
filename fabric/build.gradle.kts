@@ -35,6 +35,8 @@ dependencies {
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
 
+    modLocalRuntime(files("../test/ArcaneLib-Fabric-Arch-1.0.0.jar"))
+
     modLocalRuntime("maven.modrinth:sodium:mc${project.properties["minecraft_version"]}-${project.properties["sodium_version"]}")
     modLocalRuntime("maven.modrinth:iris:${project.properties["iris_version"]}+${project.properties["minecraft_version"]}")
     modLocalRuntime("maven.modrinth:modmenu:${project.properties["modmenu_version"]}")
