@@ -32,6 +32,7 @@ loom {
 dependencies {
     forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
     modApi("dev.architectury:architectury-forge:${project.properties["architectury_version"]}")
+    modApi("com.arcaneengineering:ArcaneLib-Forge-Arch:${project.properties["arcane_version"]}")
     modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
     modLocalRuntime("maven.modrinth:wthit:${project.properties["forge_wthit_version"]}")
     modLocalRuntime("maven.modrinth:badpackets:forge-${project.properties["badpackets_version"]}")

@@ -14,12 +14,12 @@ dependencies {
     // Do NOT use other classes from fabric loader
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
-    modCompileOnlyApi(files("../test/ArcaneLib-1.0.0.jar"))
+    modCompileOnlyApi("com.arcaneengineering:ArcaneLib:${project.properties["arcane_version"]}")
 }
 
 publishing {
     publications.create<MavenPublication>("mavenCommon") {
-        artifactId = "${project.properties["archives_base_name"]}" + "-Common"
+        artifactId = "${project.properties["archives_base_name"]}"
         from(components["java"])
     }
 
