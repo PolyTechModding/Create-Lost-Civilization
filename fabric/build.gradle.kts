@@ -34,6 +34,8 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
+    modImplementation("software.bernie.geckolib:geckolib-fabric-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
+
 
     modApi("com.arcaneengineering:ArcaneLib-Fabric-Arch:${project.properties["arcane_version"]}")
 

@@ -25,6 +25,7 @@ dependencies {
     neoForge("net.neoforged:neoforge:${project.properties["neoforge_version"]}")
     modApi("dev.architectury:architectury-neoforge:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-NeoForge-Arch:${project.properties["arcane_version"]}")
+    modImplementation("software.bernie.geckolib:geckolib-neoforge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
     modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
     modLocalRuntime("maven.modrinth:wthit:${project.properties["neoforge_wthit_version"]}")
     modLocalRuntime("maven.modrinth:badpackets:neo-${project.properties["badpackets_version"]}")
