@@ -14,7 +14,7 @@ dependencies {
     // Do NOT use other classes from fabric loader
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
-    modCompileOnlyApi("com.arcaneengineering:ArcaneLib:${project.properties["arcane_version"]}")
+    modApi("com.arcaneengineering:ArcaneLib:${project.properties["arcane_version"]}")
 }
 
 publishing {
