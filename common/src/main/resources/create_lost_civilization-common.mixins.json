@@ -4,6 +4,7 @@
   "package": "com.polytechmodding.createlostcivilization.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CoralBlockMixin"
   ],
   "client": [
   ],
