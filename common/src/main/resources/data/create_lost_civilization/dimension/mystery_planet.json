@@ -1,0 +1,24 @@
+{
+  "type": "create_lost_civilization:mystery_planet_type",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "block": "minecraft:air",
+          "height": 297
+        },
+        {
+          "block": "minecraft:bedrock",
+          "height": 5
+        },
+        {
+          "block": "minecraft:stone",
+          "height": 1
+        }
+      ]
+    }
+  }
+}
