@@ -15,6 +15,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:${project.properties["fabric_loader_version"]}")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib:${project.properties["arcane_version"]}")
+    modCompileOnly("software.bernie.geckolib:geckolib-forge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
 }
 
 publishing {
