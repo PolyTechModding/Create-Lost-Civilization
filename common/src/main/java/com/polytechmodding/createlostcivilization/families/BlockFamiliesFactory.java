@@ -37,10 +37,10 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
 
                         .addWoodBlock(Variants.BOOKSHELF)
 
-                        .addWoodBlock(Variants.HANGING_SIGN)
-                        .addWoodBlock(Variants.SIGN)
                         .addWoodBlock(Variants.WALL_HANGING_SIGN)
                         .addWoodBlock(Variants.WALL_SIGN)
+                        .addWoodBlock(Variants.HANGING_SIGN)
+                        .addWoodBlock(Variants.SIGN)
 
                         .addBlock(Variants.STAIRS)
                         .addBlock(Variants.SLAB)
@@ -48,14 +48,14 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
                         .addItem(Variants.BOAT)
                         .addItem(Variants.CHEST_BOAT)
 
-                        .addWoodBlock(Variants.FENCE)
+                        .addBlock(Variants.FENCE)
                         .addWoodBlock(Variants.FENCE_GATE)
 
-                        .addWoodBlock(Variants.DOOR)
-                        .addWoodBlock(Variants.TRAPDOOR)
+                        .addBlock(Variants.DOOR)
+                        .addBlock(Variants.TRAPDOOR)
 
-                        .addWoodBlock(Variants.BUTTON)
-                        .addWoodBlock(Variants.PRESSURE_PLATE)
+                        .addBlock(Variants.BUTTON)
+                        .addBlock(Variants.PRESSURE_PLATE)
                 );
     }
 }
