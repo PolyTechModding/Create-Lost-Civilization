@@ -4,8 +4,6 @@ import com.arcaneengineering.arcanelib.ArcaneLib;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.polytechmodding.createlostcivilization.families.BlockFamiliesFactory;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.dimension.DimensionType;
-import net.minecraft.world.level.levelgen.WorldDimensions;
 
 import java.util.ArrayList;
 
@@ -16,6 +14,6 @@ public class CreateLostCivilization
 
 	public static void init() {
 		ArcaneLib arcaneLib = ArcaneLib.getInstance();
-		// CONTEXT = arcaneLib.apiInit(MOD_ID, new BlockFamiliesFactory(), new ArrayList<>());
+		CONTEXT = arcaneLib.apiInit(MOD_ID, new BlockFamiliesFactory(), new ArrayList<>());
 	}
 }

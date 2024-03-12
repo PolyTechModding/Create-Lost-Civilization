@@ -11,7 +11,7 @@ import net.minecraft.core.registries.Registries;
 public class DatagenEntrypoint implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        // ArcaneDataGenerator.onInitializeDataGenerator(fabricDataGenerator, CreateLostCivilization.CONTEXT);
+        ArcaneDataGenerator.onInitializeDataGenerator(fabricDataGenerator, CreateLostCivilization.CONTEXT);
         fabricDataGenerator.createPack().addProvider(CivilizationWorldGenerator::new);
     }
 
