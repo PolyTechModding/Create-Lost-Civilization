@@ -7,8 +7,8 @@ import net.fabricmc.api.ModInitializer;
 
 public class CreateLostCivilizationFabric implements ArcaneEntrypoint {
 
-    @Override
-    public void onInitialize(ArcaneLib arcaneLib) {
-        CreateLostCivilization.init(arcaneLib);
-    }
+  @Override
+  public void onInitialize(ArcaneLib arcaneLib) {
+    CreateLostCivilization.init(arcaneLib);
+  }
 }
