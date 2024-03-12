@@ -13,8 +13,11 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "arcane-main": [
       "com.polytechmodding.createlostcivilization.fabric.CreateLostCivilizationFabric"
+    ],
+    "fabric-datagen": [
+      "com.polytechmodding.createlostcivilization.fabric.datagen.DatagenEntrypoint"
     ]
   },
   "mixins": [
