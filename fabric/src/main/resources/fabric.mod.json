@@ -15,6 +15,9 @@
   "entrypoints": {
     "main": [
       "com.polytechmodding.createlostcivilization.fabric.CreateLostCivilizationFabric"
+    ],
+    "fabric-datagen": [
+      "DatagenEntrypoint"
     ]
   },
   "mixins": [
