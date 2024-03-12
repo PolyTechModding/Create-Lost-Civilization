@@ -34,6 +34,14 @@ subprojects {
                 includeGroup("maven.modrinth")
             }
         }
+        maven {
+            setUrl("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
+            content {
+                includeGroupByRegex("software\\.bernie.*")
+                includeGroup("com.eliotlash.mclib")
+            }
+        }
+
     }
 
     @Suppress("UnstableApiUsage")
