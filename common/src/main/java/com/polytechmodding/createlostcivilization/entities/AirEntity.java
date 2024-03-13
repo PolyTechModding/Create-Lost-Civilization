@@ -7,4 +7,7 @@ public interface AirEntity {
     default boolean createLostCivilization$isUnderAir() {
         return false;
     }
+    default double getCreateLostCivilization$airHeight() {
+        return 0;
+    }
 }

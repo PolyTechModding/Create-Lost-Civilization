@@ -76,6 +76,11 @@ public abstract class EntityMixin implements AirEntity {
     private boolean createLostCivilization$airOnEyes;
 
     @Unique
+    public double getCreateLostCivilization$airHeight() {
+        return createLostCivilization$airHeight;
+    }
+
+    @Unique
     public boolean createLostCivilization$isInAir() {
         return this.createLostCivilization$wasTouchingAir;
     }
