@@ -80,8 +80,7 @@ public abstract class LivingEntityMixin extends Entity {
     at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getFluidJumpThreshold()D"))
     public void injectJump(CallbackInfo ci) {
         double currentHeight = ((AirEntity)this).getCreateLostCivilization$airHeight();
-        boolean valid = ((AirEntity)this).createLostCivilization$isInAir() && currentHeight > 0.0 &&
-                level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET);
+        boolean valid = ((AirEntity)this).createLostCivilization$isInAir() && currentHeight > 0.0;
         if(valid && (!this.onGround() || currentHeight > this.getFluidJumpThreshold())) {
             this.jumpInLiquid(FluidTags.WATER);
         } else if ((this.onGround() || valid && currentHeight <= this.getFluidJumpThreshold())
@@ -133,8 +132,7 @@ public abstract class LivingEntityMixin extends Entity {
                 if (this.horizontalCollision && this.isFree(vec33.x, vec33.y + (double)0.6f - this.getY() + e, vec33.z)) {
                     this.setDeltaMovement(vec33.x, 0.3f, vec33.z);
                 }
-            } else if (((AirEntity) this).createLostCivilization$isInAir() && this.isAffectedByFluids()
-                    && level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET)) {
+            } else if (((AirEntity) this).createLostCivilization$isInAir() && this.isAffectedByFluids()) {
                 // System.out.println("I got called");
                 double e = this.getY();
                 float f = this.isSprinting() ? 0.9f : this.getWaterSlowDown();

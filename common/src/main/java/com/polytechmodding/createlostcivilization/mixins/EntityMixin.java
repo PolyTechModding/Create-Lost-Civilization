@@ -82,7 +82,8 @@ public abstract class EntityMixin implements AirEntity {
 
     @Unique
     public boolean createLostCivilization$isInAir() {
-        return this.createLostCivilization$wasTouchingAir;
+        return this.createLostCivilization$wasTouchingAir &&
+                level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET);
     }
 
     @Unique
@@ -115,7 +116,7 @@ public abstract class EntityMixin implements AirEntity {
         if (this.isSwimming()) {
             // logger.info("I am swimming");
             this.setSwimming((!isMystery && this.isSprinting() && this.isInWater() && !this.isPassenger())
-            || (isMystery && this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger()));
+            || (this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger()));
             // logger.info("Passenger: " + !this.isPassenger());
             // logger.info("Sprinting: " + this.isSprinting());
             // logger.info("Is In Air: " + this.createLostCivilization$isInAir());
