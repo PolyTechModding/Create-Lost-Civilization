@@ -10,6 +10,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.slf4j.Logger;
@@ -66,6 +68,11 @@ public abstract class EntityMixin implements AirEntity {
     protected boolean firstTick;
 
     @Shadow protected boolean wasEyeInWater;
+
+    @Shadow public abstract double getX();
+
+    @Shadow public abstract double getZ();
+
     @Unique
     protected boolean createLostCivilization$wasTouchingAir;
     @Unique
@@ -112,7 +119,6 @@ public abstract class EntityMixin implements AirEntity {
     public void updateSwimming(CallbackInfo ci) {
         // logger.info("Injection of update swimming was called");
         boolean isMystery = level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET);
-        // logger.info(isMystery ? "I am a mystery" : "Not a mystery");
         if (this.isSwimming()) {
             // logger.info("I am swimming");
             this.setSwimming((!isMystery && this.isSprinting() && this.isInWater() && !this.isPassenger())
@@ -135,7 +141,7 @@ public abstract class EntityMixin implements AirEntity {
     void createLostCivilization$updateInAirStateAndDoAirCurrentPushing() {
         Boat boat;
         Entity entity = this.getVehicle();
-        if (entity instanceof Boat && !(boat = (Boat)entity).isUnderWater()) {
+        if (entity instanceof Boat && !((boat = (Boat)entity)).isUnderWater()) {
             this.createLostCivilization$wasTouchingAir = false;
         } else if (this.createLostCivilization$updateAirHeightAndDoAirPushing(0.014)) {
             if (!this.createLostCivilization$wasTouchingAir && !this.firstTick) {
@@ -151,9 +157,18 @@ public abstract class EntityMixin implements AirEntity {
 
     @Unique
     private void createLostCivilization$updateAirOnEyes() {
-        createLostCivilization$wasEyeInAir = Boolean.valueOf(createLostCivilization$airOnEyes);
+        Boat boat;
+        this.wasEyeInWater = createLostCivilization$airOnEyes;
+        createLostCivilization$airOnEyes = false;
         double d = this.getEyeY() - 0.1111111119389534;
-        if(384 > d && d > 238 && level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET)) {
+        Entity entity = this.getVehicle();
+        if (entity instanceof Boat && !(boat = (Boat)entity).isUnderWater()
+                && boat.getBoundingBox().maxY >= d && boat.getBoundingBox().minY <= d) {
+            return;
+        }
+        BlockPos blockPos = BlockPos.containing(this.getX(), d, this.getZ());
+        double e = (float)blockPos.getY() + 384;
+        if (e > d) {
             createLostCivilization$airOnEyes = true;
         }
     }
@@ -179,8 +194,11 @@ public abstract class EntityMixin implements AirEntity {
         for (int p = i; p < j; ++p) {
             for (int q = k; q < l; ++q) {
                 for (int r = m; r < n; ++r) {
+                    double f;
                     mutableBlockPos.set(p, q, r);
+                    if (!((f = (double)((float)q + 384)) >= aABB.minY)) continue;
                     bl2 = true;
+                    e = Math.max(f - aABB.minY, e);
                     if (!bl) continue;
                     ++o;
                 }
@@ -195,8 +213,9 @@ public abstract class EntityMixin implements AirEntity {
             }
             Vec3 vec33 = this.getDeltaMovement();
             vec3 = vec3.scale(d);
-            if (Math.abs(vec33.x) < 0.003 && Math.abs(vec33.z) < 0.003 && vec3.length() < 0.0045000000000000005) {
-                vec3 = vec3.normalize().scale(0.0045000000000000005);
+            double g = 0.003;
+            if (Math.abs(vec33.x) < g && Math.abs(vec33.z) < g && vec3.length() < 0.15 * g) {
+                vec3 = vec3.normalize().scale(0.15 * g);
             }
             this.setDeltaMovement(this.getDeltaMovement().add(vec3));
         }
