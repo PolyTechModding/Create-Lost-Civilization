@@ -126,6 +126,7 @@ public abstract class LocalPlayerMixin extends Player {
         boolean bl5 = this.canStartSprinting();
         boolean bl6 = this.isPassenger() ? this.getVehicle().onGround() : this.onGround();
         boolean bl9 = bl7 = !bl2 && !bl3;
+        // System.out.println("Start Sprint " + (bl6 || ((AirEntity)this).createLostCivilization$isUnderAir()) + " " + (bl7 && bl5));
         if ((bl6 || this.isUnderWater()) && bl7 && bl5) {
             if (this.sprintTriggerTime > 0 || this.minecraft.options.keySprint.isDown()) {
                 this.setSprinting(true);
@@ -139,7 +140,7 @@ public abstract class LocalPlayerMixin extends Player {
                 this.sprintTriggerTime = 7;
             }
         }
-        System.out.println("Start Sprinting " + canStartSprinting() + " " + (!((AirEntity)this).createLostCivilization$isInAir() || ((AirEntity)this).createLostCivilization$isUnderAir()));
+        // System.out.println("Start Sprinting " + canStartSprinting() + " " + (!((AirEntity)this).createLostCivilization$isInAir() || ((AirEntity)this).createLostCivilization$isUnderAir()));
         if ((!this.isInWater() || this.isUnderWater()) && bl5 && this.minecraft.options.keySprint.isDown()) {
             this.setSprinting(true);
         } else if ((!((AirEntity)this).createLostCivilization$isInAir() || ((AirEntity)this).createLostCivilization$isUnderAir())
@@ -152,13 +153,14 @@ public abstract class LocalPlayerMixin extends Player {
             boolean bl10 = bl92 = bl8
                     || this.horizontalCollision && !this.minorHorizontalCollision || this.isInWater() && !this.isUnderWater() || ((AirEntity)this).createLostCivilization$isInAir() && !((AirEntity)this).createLostCivilization$isUnderAir();
             if (this.isSwimming()) {
-                System.out.println("Sprinting deactivated while swimming " +
+                /* System.out.println("Sprinting deactivated while swimming " +
                         (!this.onGround() && !this.input.shiftKeyDown && bl8) + " " +
                         (!this.isInWater() && !level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET)) + " " + !((AirEntity)this).createLostCivilization$isInAir() + " total: " +
                         ((!this.onGround() && !this.input.shiftKeyDown && bl8) || !this.isInWater() ||
-                        !((AirEntity)this).createLostCivilization$isInAir()));
-                if ((!this.onGround() && !this.input.shiftKeyDown && bl8) || !this.isInWater() && !level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET) ||
-                        !((AirEntity)this).createLostCivilization$isInAir()) {
+                        !((AirEntity)this).createLostCivilization$isInAir())); */
+                if ((!this.onGround() && !this.input.shiftKeyDown && bl8) || !this.isInWater() && !level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET)
+                        // || !((AirEntity)this).createLostCivilization$isInAir()
+                ) {
                     this.setSprinting(false);
                 }
             } else if (bl92) {

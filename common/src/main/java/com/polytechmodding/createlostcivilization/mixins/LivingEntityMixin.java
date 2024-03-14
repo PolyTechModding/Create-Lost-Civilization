@@ -81,7 +81,9 @@ public abstract class LivingEntityMixin extends Entity {
     public void injectJump(CallbackInfo ci) {
         double currentHeight = ((AirEntity)this).getCreateLostCivilization$airHeight();
         boolean valid = ((AirEntity)this).createLostCivilization$isInAir() && currentHeight > 0.0;
+        // System.out.println("Jump code was called");
         if(valid && (!this.onGround() || currentHeight > this.getFluidJumpThreshold())) {
+            // System.out.println("Fluid Jump");
             this.jumpInLiquid(FluidTags.WATER);
         } else if ((this.onGround() || valid && currentHeight <= this.getFluidJumpThreshold())
                 && this.noJumpDelay == 0) {
