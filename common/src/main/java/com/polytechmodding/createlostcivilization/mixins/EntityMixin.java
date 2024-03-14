@@ -120,19 +120,25 @@ public abstract class EntityMixin implements AirEntity {
         // logger.info("Injection of update swimming was called");
         boolean isMystery = level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET);
         if (this.isSwimming()) {
-            // logger.info("I am swimming");
+            logger.info("I am swimming");
             this.setSwimming((!isMystery && this.isSprinting() && this.isInWater() && !this.isPassenger())
             || (this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger()));
-            // logger.info("Passenger: " + !this.isPassenger());
-            // logger.info("Sprinting: " + this.isSprinting());
             // logger.info("Is In Air: " + this.createLostCivilization$isInAir());
+            logger.info("I am swimming \n" +
+                    "Passenger: " + !this.isPassenger() +
+                    "\n Sprinting: " + this.isSprinting() +
+                    "\n Is In Air: " + this.createLostCivilization$isInAir());
             // logger.info(String.valueOf((isMystery && this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger())));
-            // logger.info("I am swimming");
         } else {
             this.setSwimming(((!isMystery && this.isSprinting() && this.isUnderWater() && !this.isPassenger()
                     && this.level().getFluidState(this.blockPosition).is(FluidTags.WATER)))
-            || (isMystery && this.isSprinting() && this.createLostCivilization$isUnderAir() && !this.isPassenger()
+            || (this.isSprinting() && this.createLostCivilization$isUnderAir() && !this.isPassenger()
                     && this.level().getBlockState(this.blockPosition).is(Blocks.AIR)));
+            /* logger.info("I am not swimming \n" +
+                    "Passenger: " + !this.isPassenger() +
+                    "\n Sprinting: " + this.isSprinting() +
+                    "\n Is Under Air: " + this.createLostCivilization$isUnderAir() +
+                    "\n Is block air: " + this.level().getBlockState(this.blockPosition).is(Blocks.AIR)); */
         }
         ci.cancel();
     }
@@ -158,7 +164,7 @@ public abstract class EntityMixin implements AirEntity {
     @Unique
     private void createLostCivilization$updateAirOnEyes() {
         Boat boat;
-        this.wasEyeInWater = createLostCivilization$airOnEyes;
+        createLostCivilization$wasEyeInAir = createLostCivilization$airOnEyes;
         createLostCivilization$airOnEyes = false;
         double d = this.getEyeY() - 0.1111111119389534;
         Entity entity = this.getVehicle();
