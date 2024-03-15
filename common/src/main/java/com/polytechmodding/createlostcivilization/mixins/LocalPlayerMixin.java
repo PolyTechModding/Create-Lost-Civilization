@@ -164,7 +164,7 @@ public abstract class LocalPlayerMixin extends Player {
                     this.setSprinting(false);
                 }
             } else if (bl92) {
-                System.out.println("Spring deactivated because I left the air");
+                // System.out.println("Spring deactivated because I left the air");
                 this.setSprinting(false);
             }
         }

@@ -120,14 +120,14 @@ public abstract class EntityMixin implements AirEntity {
         // logger.info("Injection of update swimming was called");
         boolean isMystery = level().dimensionTypeId().equals(CivilizationDimensions.MYSTERY_PLANET);
         if (this.isSwimming()) {
-            logger.info("I am swimming");
+            // logger.info("I am swimming");
             this.setSwimming((!isMystery && this.isSprinting() && this.isInWater() && !this.isPassenger())
             || (this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger()));
             // logger.info("Is In Air: " + this.createLostCivilization$isInAir());
-            logger.info("I am swimming \n" +
+            /* logger.info("I am swimming \n" +
                     "Passenger: " + !this.isPassenger() +
                     "\n Sprinting: " + this.isSprinting() +
-                    "\n Is In Air: " + this.createLostCivilization$isInAir());
+                    "\n Is In Air: " + this.createLostCivilization$isInAir()); */
             // logger.info(String.valueOf((isMystery && this.isSprinting() && this.createLostCivilization$isInAir() && !this.isPassenger())));
         } else {
             this.setSwimming(((!isMystery && this.isSprinting() && this.isUnderWater() && !this.isPassenger()
