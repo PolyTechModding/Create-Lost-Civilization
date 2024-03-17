@@ -5,7 +5,9 @@ import com.polytechmodding.createlostcivilization.entities.AirEntity;
 import com.polytechmodding.createlostcivilization.world.level.dimension.CivilizationDimensions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.ReceivingLevelScreen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;
+import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.player.Input;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
@@ -31,14 +33,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Debug(export = true)
 @Mixin(LocalPlayer.class)
-public abstract class LocalPlayerMixin extends Player {
+public abstract class LocalPlayerMixin extends AbstractClientPlayer {
 
 
     @Shadow protected int sprintTriggerTime;
 
     @Shadow @Final protected Minecraft minecraft;
+
+    public LocalPlayerMixin(ClientLevel clientLevel, GameProfile gameProfile) {
+        super(clientLevel, gameProfile);
+    }
 
     @Shadow protected abstract boolean canStartSprinting();
 
@@ -78,9 +83,7 @@ public abstract class LocalPlayerMixin extends Player {
 
     @Shadow public abstract void tick();
 
-    public LocalPlayerMixin(Level level, BlockPos blockPos, float f, GameProfile gameProfile) {
-        super(level, blockPos, f, gameProfile);
-    }
+
 
     @Inject(method = "aiStep()V",
     at = @At(value = "HEAD"), cancellable = true)
