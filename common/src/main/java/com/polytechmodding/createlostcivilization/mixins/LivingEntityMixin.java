@@ -1,7 +1,6 @@
 package com.polytechmodding.createlostcivilization.mixins;
 
 import com.polytechmodding.createlostcivilization.entities.AirEntity;
-import com.polytechmodding.createlostcivilization.world.level.dimension.CivilizationDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.FluidTags;
@@ -20,18 +19,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Debug(export = true)
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
 
@@ -71,12 +66,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Shadow public abstract void calculateEntityAnimation(boolean bl);
 
     @Unique
-    private float createLostCivilization$waterSlowDown = 0.8F;
-
-    @Inject(at = @At("HEAD"), method = "getWaterSlowDown()F", cancellable = true)
-    protected void slowDownInject(@NotNull CallbackInfoReturnable<Float> cir) {
-        cir.setReturnValue(createLostCivilization$waterSlowDown);
-    }
+    private float createLostCivilization$waterSlowDown = 0.9F;
 
     @Inject(method = "aiStep()V",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getFluidJumpThreshold()D"))
@@ -86,12 +76,17 @@ public abstract class LivingEntityMixin extends Entity {
         // System.out.println("Jump code was called");
         if(valid && (!this.onGround() || currentHeight > this.getFluidJumpThreshold())) {
             // System.out.println("Fluid Jump");
-            this.jumpInLiquid(FluidTags.WATER);
+            createLostCivilization$jumpInAir();
         } else if ((this.onGround() || valid && currentHeight <= this.getFluidJumpThreshold())
                 && this.noJumpDelay == 0) {
             this.jumpFromGround();
             this.noJumpDelay = 10;
         }
+    }
+
+    @Unique
+    protected void createLostCivilization$jumpInAir() {
+        this.setDeltaMovement(this.getDeltaMovement().add(0.0, 0.08f, 0.0));
     }
 
     @Inject(method = "travel(Lnet/minecraft/world/phys/Vec3;)V",
@@ -139,19 +134,8 @@ public abstract class LivingEntityMixin extends Entity {
             } else if (((AirEntity) this).createLostCivilization$isInAir() && this.isAffectedByFluids()) {
                 // System.out.println("I got called");
                 double e = this.getY();
-                float f = this.isSprinting() ? 0.9f : this.getWaterSlowDown();
+                float f = this.isSprinting() ? 0.99f : createLostCivilization$waterSlowDown;
                 float g = 0.02f;
-                float h = EnchantmentHelper.getDepthStrider((LivingEntity)(Object) this);
-                if (h > 3.0f) {
-                    h = 3.0f;
-                }
-                if (!this.onGround()) {
-                    h *= 0.5f;
-                }
-                if (h > 0.0f) {
-                    f += (0.54600006f - f) * h / 3.0f;
-                    g += (this.getSpeed() - g) * h / 3.0f;
-                }
                 this.moveRelative(g, vec3);
                 this.move(MoverType.SELF, this.getDeltaMovement());
                 Vec3 vec32 = this.getDeltaMovement();
@@ -159,7 +143,7 @@ public abstract class LivingEntityMixin extends Entity {
                     vec32 = new Vec3(vec32.x, 0.2, vec32.z);
                 }
                 this.setDeltaMovement(vec32.multiply(f, 0.8f, f));
-                Vec3 vec33 = this.getFluidFallingAdjustedMovement(0.08, this.getDeltaMovement().y <= 0.0, this.getDeltaMovement());
+                Vec3 vec33 = this.getFluidFallingAdjustedMovement(1.5, this.getDeltaMovement().y <= 0.0, this.getDeltaMovement());
                 this.setDeltaMovement(vec33);
                 if (this.horizontalCollision && this.isFree(vec33.x, vec33.y + (double)0.6f - this.getY() + e, vec33.z)) {
                     this.setDeltaMovement(vec33.x, 0.3f, vec33.z);

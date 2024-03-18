@@ -249,7 +249,6 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject(method = "hasEnoughImpulseToStartSprinting()Z",
     at = @At("HEAD"), cancellable = true)
     private void hasEnoughImpulseToStartSprintingInjection(CallbackInfoReturnable<Boolean> cir) {
-        double d = 0.8;
         cir.setReturnValue((this.isUnderWater() || ((AirEntity)this).createLostCivilization$isUnderAir()) ?
                 this.input.hasForwardImpulse() : (double)this.input.forwardImpulse >= 0.8);
     }
