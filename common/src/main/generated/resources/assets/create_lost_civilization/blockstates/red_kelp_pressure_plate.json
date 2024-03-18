@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "create_lost_civilization:block/red_kelp/pressure_plate"
+    },
+    "powered=true": {
+      "model": "create_lost_civilization:block/red_kelp/pressure_plate_down"
+    }
+  }
+}

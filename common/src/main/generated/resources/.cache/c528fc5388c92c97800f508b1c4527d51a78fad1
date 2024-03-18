@@ -1,0 +1,5 @@
+// 1.20.4	2024-03-18T23:05:51.6376722	Create Lost Civilization/Tags for minecraft:item
+c88d1e7628ff5802616b3b68ce9c0a0adc367947 data\minecraft\tags\items\boats.json
+262f1058e5d5b08afc03436a715cce3e2f09aa3a data\create_lost_civilization\tags\items\boats.json
+dbe0262fb869e40671f204196dc20f51dabba9ff data\create_lost_civilization\tags\items\chest_boats.json
+0f236896b1d468344e9810471631bd5ad2c9446f data\minecraft\tags\items\chest_boats.json

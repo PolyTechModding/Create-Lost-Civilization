@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "create_lost_civilization:item/orange_kelp/boat",
+    "layer1": "create_lost_civilization:item/chest_boat_overlay"
+  }
+}

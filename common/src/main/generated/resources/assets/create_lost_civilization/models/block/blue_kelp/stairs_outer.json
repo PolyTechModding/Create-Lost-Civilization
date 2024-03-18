@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "create_lost_civilization:block/blue_kelp/planks",
+    "side": "create_lost_civilization:block/blue_kelp/planks",
+    "top": "create_lost_civilization:block/blue_kelp/planks"
+  }
+}

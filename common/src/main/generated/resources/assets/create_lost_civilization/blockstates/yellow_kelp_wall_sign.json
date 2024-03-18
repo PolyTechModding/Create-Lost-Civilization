@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "create_lost_civilization:block/yellow_kelp/sign"
+    }
+  }
+}

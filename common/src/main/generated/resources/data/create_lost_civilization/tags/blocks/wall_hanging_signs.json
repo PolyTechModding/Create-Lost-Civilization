@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "create_lost_civilization:red_kelp_wall_hanging_sign",
+    "create_lost_civilization:blue_kelp_wall_hanging_sign",
+    "create_lost_civilization:yellow_kelp_wall_hanging_sign",
+    "create_lost_civilization:orange_kelp_wall_hanging_sign",
+    "create_lost_civilization:pink_kelp_wall_hanging_sign"
+  ]
+}

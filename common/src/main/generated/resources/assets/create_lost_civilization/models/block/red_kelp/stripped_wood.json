@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "create_lost_civilization:block/red_kelp/stripped_log",
+    "side": "create_lost_civilization:block/red_kelp/stripped_log"
+  }
+}

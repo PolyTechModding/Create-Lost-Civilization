@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "create_lost_civilization:block/orange_kelp/planks"
+  }
+}

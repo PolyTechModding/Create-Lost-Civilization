@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate_wall",
+  "textures": {
+    "texture": "create_lost_civilization:block/blue_kelp/planks"
+  }
+}

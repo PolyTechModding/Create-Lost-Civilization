@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "create_lost_civilization:block/red_kelp/slab"
+    },
+    "type=double": {
+      "model": "create_lost_civilization:block/red_kelp/planks"
+    },
+    "type=top": {
+      "model": "create_lost_civilization:block/red_kelp/slab_top"
+    }
+  }
+}
