@@ -33,6 +33,7 @@ dependencies {
     forge("net.minecraftforge:forge:$minecraftVersion-${project.properties["forge_version"]}")
     modApi("dev.architectury:architectury-forge:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-Forge-Arch:${project.properties["arcane_version"]}")
+    modImplementation("com.github.glitchfiend:TerraBlender-forge:${project.properties["minecraft_version"]}-${project.properties["terrablender_version"]}")
     modImplementation("software.bernie.geckolib:geckolib-forge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-forge-api:${project.properties["jei_version"]}")

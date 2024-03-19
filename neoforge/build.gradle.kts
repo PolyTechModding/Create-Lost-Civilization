@@ -25,6 +25,7 @@ dependencies {
     neoForge("net.neoforged:neoforge:${project.properties["neoforge_version"]}")
     modApi("dev.architectury:architectury-neoforge:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-NeoForge-Arch:${project.properties["arcane_version"]}")
+    modImplementation("com.github.glitchfiend:TerraBlender-neoforge:${project.properties["minecraft_version"]}-${project.properties["terrablender_version"]}")
     modImplementation("software.bernie.geckolib:geckolib-neoforge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-neoforge-api:${project.properties["jei_version"]}")

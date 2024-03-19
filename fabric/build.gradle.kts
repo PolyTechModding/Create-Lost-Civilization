@@ -35,7 +35,7 @@ dependencies {
     modApi("net.fabricmc.fabric-api:fabric-api:${project.properties["fabric_api_version"]}+$minecraftVersion")
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
     modImplementation("software.bernie.geckolib:geckolib-fabric-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
-
+    modImplementation("com.github.glitchfiend:TerraBlender-fabric:${project.properties["minecraft_version"]}-${project.properties["terrablender_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-Fabric-Arch:${project.properties["arcane_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-fabric-api:${project.properties["jei_version"]}")
