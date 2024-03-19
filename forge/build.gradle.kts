@@ -34,7 +34,9 @@ dependencies {
     modApi("dev.architectury:architectury-forge:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-Forge-Arch:${project.properties["arcane_version"]}")
     modImplementation("software.bernie.geckolib:geckolib-forge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
-    modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
+    modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
+    modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-forge-api:${project.properties["jei_version"]}")
+    modRuntimeOnly("mezz.jei:jei-${project.properties["minecraft_version"]}-fabric:${project.properties["jei_version"]}")
     modLocalRuntime("maven.modrinth:wthit:${project.properties["forge_wthit_version"]}")
     modLocalRuntime("maven.modrinth:badpackets:forge-${project.properties["badpackets_version"]}")
 

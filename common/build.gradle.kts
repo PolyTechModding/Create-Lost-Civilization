@@ -16,6 +16,7 @@ dependencies {
     modApi("dev.architectury:architectury-fabric:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib:${project.properties["arcane_version"]}")
     modCompileOnly("software.bernie.geckolib:geckolib-forge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
+    modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
 }
 
 publishing {

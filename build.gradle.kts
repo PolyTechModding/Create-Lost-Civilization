@@ -41,6 +41,7 @@ subprojects {
                 includeGroup("com.eliotlash.mclib")
             }
         }
+        maven("https://maven.blamejared.com/")
 
     }
 
