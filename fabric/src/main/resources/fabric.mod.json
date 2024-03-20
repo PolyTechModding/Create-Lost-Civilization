@@ -2,15 +2,12 @@
   "schemaVersion": 1,
   "id": "create_lost_civilization",
   "version": "${version}",
-
   "name": "Create Lost Civilization",
   "description": "",
   "authors": [],
   "contact": {},
-
   "license": "All Rights Reserved",
   "icon": "icon.png",
-
   "environment": "*",
   "entrypoints": {
     "arcane-main": [
