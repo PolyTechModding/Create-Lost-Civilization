@@ -8,8 +8,8 @@ import org.jetbrains.annotations.NotNull;
 
 @JeiPlugin
 public class JEIEntrypoint implements IModPlugin {
-    @Override
-    public @NotNull ResourceLocation getPluginUid() {
-        return new ResourceLocation(CreateLostCivilization.MOD_ID, "");
-    }
+  @Override
+  public @NotNull ResourceLocation getPluginUid() {
+    return new ResourceLocation(CreateLostCivilization.MOD_ID, "");
+  }
 }

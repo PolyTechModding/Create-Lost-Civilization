@@ -8,16 +8,18 @@ import net.minecraft.resources.ResourceLocation;
 import terrablender.api.Regions;
 import terrablender.api.TerraBlenderApi;
 
-public class CreateLostCivilizationFabric implements ArcaneEntrypoint, TerraBlenderApi {
+public class CreateLostCivilizationFabric
+    implements ArcaneEntrypoint, TerraBlenderApi {
 
-    @Override
-    public void onInitialize(ArcaneLib arcaneLib) {
-        CreateLostCivilization.init(arcaneLib);
-    }
+  @Override
+  public void onInitialize(ArcaneLib arcaneLib) {
+    CreateLostCivilization.init(arcaneLib);
+  }
 
-    @Override
-    public void onTerraBlenderInitialized() {
-        Regions.register(new CivilizationRegion(new ResourceLocation(CreateLostCivilization.MOD_ID,
-                "mystery_planet"), 2));
-    }
+  @Override
+  public void onTerraBlenderInitialized() {
+    Regions.register(new CivilizationRegion(
+        new ResourceLocation(CreateLostCivilization.MOD_ID, "mystery_planet"),
+        2));
+  }
 }
