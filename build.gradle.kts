@@ -30,7 +30,7 @@ subprojects {
                     url = uri("https://api.modrinth.com/maven")
                 }
             }
-            filter { 
+            filter {
                 includeGroup("maven.modrinth")
             }
         }
@@ -41,6 +41,7 @@ subprojects {
                 includeGroup("com.eliotlash.mclib")
             }
         }
+        maven("https://maven.blamejared.com/")
 
     }
 
