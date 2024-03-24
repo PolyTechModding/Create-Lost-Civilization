@@ -8,6 +8,8 @@
     "LivingEntityMixin",
     "LocalPlayerMixin",
     "PlayerMixin"
+    "PlayerMixin",
+    "CoralBlockMixin"
   ],
   "client": [],
   "injectors": {
