@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "create_lost_civilization:block/blue_kelp/stripped_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "create_lost_civilization:block/blue_kelp/stripped_log"
+    },
+    "axis=z": {
+      "model": "create_lost_civilization:block/blue_kelp/stripped_log",
+      "x": 90
+    }
+  }
+}

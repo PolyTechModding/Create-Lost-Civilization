@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "create_lost_civilization:block/blue_kelp/planks"
+  }
+}

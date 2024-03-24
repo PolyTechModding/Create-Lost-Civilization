@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "create_lost_civilization:block/blue_kelp/planks"
+  }
+}

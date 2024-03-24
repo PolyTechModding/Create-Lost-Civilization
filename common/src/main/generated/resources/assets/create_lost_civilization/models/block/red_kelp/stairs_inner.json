@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "create_lost_civilization:block/red_kelp/planks",
+    "side": "create_lost_civilization:block/red_kelp/planks",
+    "top": "create_lost_civilization:block/red_kelp/planks"
+  }
+}
