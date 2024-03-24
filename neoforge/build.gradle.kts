@@ -25,8 +25,11 @@ dependencies {
     neoForge("net.neoforged:neoforge:${project.properties["neoforge_version"]}")
     modApi("dev.architectury:architectury-neoforge:${project.properties["architectury_version"]}")
     modApi("com.arcaneengineering:ArcaneLib-NeoForge-Arch:${project.properties["arcane_version"]}")
+    modImplementation("com.github.glitchfiend:TerraBlender-neoforge:${project.properties["minecraft_version"]}-${project.properties["terrablender_version"]}")
     modImplementation("software.bernie.geckolib:geckolib-neoforge-${project.properties["minecraft_version"]}:${project.properties["gecko_version"]}")
-    modLocalRuntime("maven.modrinth:jei:${project.properties["jei_version"]}")
+    modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
+    modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-neoforge-api:${project.properties["jei_version"]}")
+    modRuntimeOnly("mezz.jei:jei-${project.properties["minecraft_version"]}-fabric:${project.properties["jei_version"]}")
     modLocalRuntime("maven.modrinth:wthit:${project.properties["neoforge_wthit_version"]}")
     modLocalRuntime("maven.modrinth:badpackets:neo-${project.properties["badpackets_version"]}")
 
