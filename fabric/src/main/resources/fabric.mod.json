@@ -2,15 +2,12 @@
   "schemaVersion": 1,
   "id": "create_lost_civilization",
   "version": "${version}",
-
   "name": "Create Lost Civilization",
   "description": "",
   "authors": [],
   "contact": {},
-
   "license": "All Rights Reserved",
   "icon": "icon.png",
-
   "environment": "*",
   "entrypoints": {
     "arcane-main": [
@@ -18,6 +15,9 @@
     ],
     "fabric-datagen": [
       "com.polytechmodding.createlostcivilization.fabric.datagen.DatagenEntrypoint"
+    ],
+    "jei_mod_plugin": [
+      "com.polytechmodding.createlostcivilization.fabric.jei.JEIEntrypoint"
     ]
   },
   "mixins": [

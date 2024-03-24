@@ -7,11 +7,11 @@
     "EntityMixin",
     "LivingEntityMixin",
     "LocalPlayerMixin",
+    "PlayerMixin"
     "PlayerMixin",
     "CoralBlockMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
