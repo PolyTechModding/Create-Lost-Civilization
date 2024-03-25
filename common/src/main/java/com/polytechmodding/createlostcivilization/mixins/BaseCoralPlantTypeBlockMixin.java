@@ -4,17 +4,14 @@ import com.polytechmodding.createlostcivilization.world.level.dimension.Civiliza
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseCoralPlantTypeBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,23 +25,27 @@ public abstract class BaseCoralPlantTypeBlockMixin extends Block
         implements SimpleWaterloggedBlock {
     @Shadow @Final public static BooleanProperty WATERLOGGED;
 
-    @Shadow
-    protected static boolean scanForWater(BlockState arg, BlockGetter arg2, BlockPos arg3) {
-        return false;
-    }
-
     public BaseCoralPlantTypeBlockMixin(Properties properties) {
         super(properties);
     }
 
     @Inject(method = "scanForWater(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z",
     at = @At("HEAD"), cancellable = true)
-    protected static void scanForWaterInject(BlockState blockState, BlockGetter blockGetter,
+    private static void scanForWaterInject(BlockState blockState, BlockGetter blockGetter,
                                        BlockPos blockPos, CallbackInfoReturnable<Boolean> cir) {
-        LevelAccessor levelAccessor = (LevelAccessor) blockGetter;
-        if(!CivilizationDimensions.map.inverse().get(levelAccessor.dimensionType())
+        Level levelAccessor = (Level) blockGetter;
+        if(!levelAccessor.dimensionTypeId()
                 .equals(CivilizationDimensions.MYSTERY_PLANET)) {
-            cir.setReturnValue(scanForWater(blockState, blockGetter, blockPos));
+            if (blockState.getValue(WATERLOGGED)) {
+                cir.setReturnValue(true);
+            } else {
+                for (Direction direction : Direction.values()) {
+                    if (blockGetter.getFluidState(blockPos.relative(direction)).is(FluidTags.WATER)) {
+                        cir.setReturnValue(true);
+                    }
+                }
+                cir.setReturnValue(false);
+            }
         } else {
             cir.setReturnValue(createLostCivilization$scanForAir(blockState, blockGetter, blockPos));
         }
@@ -52,7 +53,7 @@ public abstract class BaseCoralPlantTypeBlockMixin extends Block
     }
 
     @Unique
-    protected static boolean createLostCivilization$scanForAir(BlockState arg, BlockGetter arg2, BlockPos arg3) {
+    private static boolean createLostCivilization$scanForAir(BlockState arg, BlockGetter arg2, BlockPos arg3) {
         if (arg.getValue(WATERLOGGED)) {
             return false;
         }

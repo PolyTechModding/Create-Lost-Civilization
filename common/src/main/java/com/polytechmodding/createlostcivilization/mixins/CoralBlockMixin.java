@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -46,7 +47,7 @@ public abstract class CoralBlockMixin extends Block {
     private void redirectUpdateShape(BlockState blockState, Direction direction,
                                      BlockState blockState2, LevelAccessor levelAccessor,
                                      BlockPos blockPos, BlockPos blockPos2, CallbackInfoReturnable<BlockState> cir) {
-        if (createLostCivilization$isDecaying(levelAccessor, blockPos)) {
+        if (createLostCivilization$isDecaying((Level) levelAccessor, blockPos)) {
             levelAccessor.scheduleTick(blockPos, this, 60 + levelAccessor.getRandom().nextInt(40));
         }
 
@@ -64,12 +65,12 @@ public abstract class CoralBlockMixin extends Block {
     }
 
     @Unique
-    protected boolean createLostCivilization$isDecaying(LevelAccessor levelAccessor, BlockPos blockPos) {
+    protected boolean createLostCivilization$isDecaying(Level levelAccessor, BlockPos blockPos) {
         return (!this.scanForWater(levelAccessor, blockPos) &&
-                !CivilizationDimensions.map.inverse().get(levelAccessor.dimensionType())
+                !levelAccessor.dimensionTypeId()
                         .equals(CivilizationDimensions.MYSTERY_PLANET)) ||
                 (!this.createLostCivilization$scanForAir(levelAccessor, blockPos) &&
-                        CivilizationDimensions.map.inverse().get(levelAccessor.dimensionType())
+                        levelAccessor.dimensionTypeId()
                                 .equals(CivilizationDimensions.MYSTERY_PLANET));
     }
 

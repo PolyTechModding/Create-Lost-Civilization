@@ -27,6 +27,26 @@ public class CivilizationDimensions {
 
   public static final BiMap<ResourceKey<DimensionType>, DimensionType> map = HashBiMap.create();
 
+  static {
+    var mystery_planet = new DimensionType(OptionalLong.empty(), true, true, false, true, 1.0,
+            true, false, -64, 384, 384,
+            BlockTags.INFINIBURN_OVERWORLD,
+            BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0.0f,
+            new DimensionType.MonsterSettings(
+                    false, false, UniformInt.of(0, 7), 0));
+
+    var mystery_planet_caves = new DimensionType(OptionalLong.empty(), true, false, false, true, 1.0,
+            true, false, -64, 384, 384,
+            BlockTags.INFINIBURN_OVERWORLD,
+            BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0.0f,
+            new DimensionType.MonsterSettings(
+                    false, false, UniformInt.of(0, 7), 0));
+    map.put(MYSTERY_PLANET, mystery_planet);
+    map.put(MYSTERY_PLANET_CAVES, mystery_planet_caves);
+    System.out.println(map);
+    System.out.println(map.inverse());
+  }
+
   /* boolean hasSkyLight,
   boolean hasCeiling,
   boolean ultraWarm,
@@ -45,26 +65,10 @@ public class CivilizationDimensions {
   // boolean piglinSafe, boolean hasRaids, IntProvider monsterSpawnLightTest,
   // int monsterSpawnBlockLightLimit
   public static void bootstrapType(BootstapContext<DimensionType> context) {
-    var mystery_planet = new DimensionType(OptionalLong.empty(), true, true, false, true, 1.0,
-            true, false, -64, 384, 384,
-            BlockTags.INFINIBURN_OVERWORLD,
-            BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0.0f,
-            new DimensionType.MonsterSettings(
-                    false, false, UniformInt.of(0, 7), 0));
     context.register(
-        MYSTERY_PLANET, mystery_planet);
-
-    var mystery_planet_caves = new DimensionType(OptionalLong.empty(), true, false, false, true, 1.0,
-            true, false, -64, 384, 384,
-            BlockTags.INFINIBURN_OVERWORLD,
-            BuiltinDimensionTypes.OVERWORLD_EFFECTS, 0.0f,
-            new DimensionType.MonsterSettings(
-                    false, false, UniformInt.of(0, 7), 0));
+        MYSTERY_PLANET, map.get(MYSTERY_PLANET));
 
     context.register(
-        MYSTERY_PLANET_CAVES, mystery_planet_caves);
-
-    map.put(MYSTERY_PLANET, mystery_planet);
-    map.put(MYSTERY_PLANET_CAVES, mystery_planet_caves);
+        MYSTERY_PLANET_CAVES, map.get(MYSTERY_PLANET_CAVES));
   }
 }
