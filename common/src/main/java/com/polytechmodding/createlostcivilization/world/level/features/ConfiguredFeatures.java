@@ -34,7 +34,7 @@ public final class ConfiguredFeatures {
 
     private static final DeferredRegister<TreeDecoratorType<?>> decorationPlacerTypeRegistry =
             DeferredRegister.create(CreateLostCivilization.MOD_ID, Registries.TREE_DECORATOR_TYPE);
-
+ /*
     public static final Supplier<? extends ConfiguredFeature<TreeConfiguration, ?>> exampleTree =
             featuresRegistry.register("test_tree", () -> new ConfiguredFeature<>(Feature.TREE,
                     new TreeConfiguration.TreeConfigurationBuilder(
@@ -52,4 +52,6 @@ public final class ConfiguredFeatures {
 
     public static final Supplier<? extends TreeDecoratorType<?>> exampleDecorationPlayer =
             decorationPlacerTypeRegistry.register("test_decoration_placer", () -> new TreeDecoratorType<>(TrunkVineDecorator.CODEC));
+    
+  */
 }
