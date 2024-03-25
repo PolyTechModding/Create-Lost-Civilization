@@ -4,12 +4,12 @@
   "package": "com.polytechmodding.createlostcivilization.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BaseCoralPlantTypeBlockMixin",
+    "CoralBlockMixin",
     "EntityMixin",
     "LivingEntityMixin",
     "LocalPlayerMixin",
     "PlayerMixin"
-    "PlayerMixin",
-    "CoralBlockMixin"
   ],
   "client": [],
   "injectors": {
