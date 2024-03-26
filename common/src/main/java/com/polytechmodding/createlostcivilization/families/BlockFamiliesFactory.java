@@ -1,11 +1,15 @@
 package com.polytechmodding.createlostcivilization.families;
 
 import com.arcaneengineering.arcanelib.config.Variants;
+import com.arcaneengineering.arcanelib.config.types.GrowerVariant;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.arcaneengineering.arcanelib.registry.BlockFamilies;
 import com.arcaneengineering.arcanelib.registry.BlockFamily;
+import com.polytechmodding.createlostcivilization.world.level.features.ConfiguredFeatures;
 import net.fabricmc.loader.impl.lib.sat4j.minisat.core.VarActivityListener;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
 
 public final class BlockFamiliesFactory
@@ -34,7 +38,8 @@ public final class BlockFamiliesFactory
             .addWoodBlock(Variants.STRIPPED_WOOD)
             .addBlock(Variants.TRAPDOOR)
             .addWoodBlock(Variants.WOOD)
-            .addWoodBlock(Variants.SAPLING)
+            .addGrower(Variants.SAPLING, null,
+                    ConfiguredFeatures.CYPRESS_TREE::getKey, null, null)
             .addItem(Variants.BOAT)
             .addItem(Variants.CHEST_BOAT)
     );
