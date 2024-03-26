@@ -1,0 +1,22 @@
+{
+  "block.create_lost_civilization.cypress_button": "Cypress Button",
+  "block.create_lost_civilization.cypress_door": "Cypress Door",
+  "block.create_lost_civilization.cypress_fence": "Cypress Fence",
+  "block.create_lost_civilization.cypress_fence_gate": "Cypress Fence Gate",
+  "block.create_lost_civilization.cypress_hanging_sign": "Cypress Wall Hanging Sign",
+  "block.create_lost_civilization.cypress_leaves": "Cypress Leaves",
+  "block.create_lost_civilization.cypress_log": "Cypress Log",
+  "block.create_lost_civilization.cypress_planks": "Cypress Planks",
+  "block.create_lost_civilization.cypress_pressure_plate": "Cypress Pressure Plate",
+  "block.create_lost_civilization.cypress_sapling": "Cypress Sapling",
+  "block.create_lost_civilization.cypress_sign": "Cypress Wall Sign",
+  "block.create_lost_civilization.cypress_slab": "Cypress Slab",
+  "block.create_lost_civilization.cypress_stairs": "Cypress Stairs",
+  "block.create_lost_civilization.cypress_trapdoor": "Cypress Trapdoor",
+  "block.create_lost_civilization.cypress_wood": "Cypress Wood",
+  "block.create_lost_civilization.stripped_cypress_log": "Stripped Cypress Log",
+  "block.create_lost_civilization.stripped_cypress_wood": "Stripped Cypress Wood",
+  "category.create_lost_civilization": "Create Lost Civilization",
+  "item.create_lost_civilization.cypress_boat": "Cypress Boat",
+  "item.create_lost_civilization.cypress_chest_boat": "Cypress Chest Boat"
+}
