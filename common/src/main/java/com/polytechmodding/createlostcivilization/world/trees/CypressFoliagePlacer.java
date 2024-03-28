@@ -2,7 +2,7 @@ package com.polytechmodding.createlostcivilization.world.trees;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.polytechmodding.createlostcivilization.world.level.features.ConfiguredFeatures;
+import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
@@ -21,7 +21,7 @@ public class CypressFoliagePlacer extends FoliagePlacer {
 
     @Override
     protected @NotNull FoliagePlacerType<?> type() {
-        return ConfiguredFeatures.CYPRESS_FOLIAGE_PLACER.get();
+        return CivilizationFeatures.CYPRESS_FOLIAGE_PLACER.get();
     }
 
     @Override

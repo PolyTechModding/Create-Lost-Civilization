@@ -3,7 +3,6 @@ package com.polytechmodding.createlostcivilization.neoforge;
 import com.arcaneengineering.arcanelib.ArcaneLib;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(CreateLostCivilization.MOD_ID)
 public class CreateLostCivilizationNeoForge {

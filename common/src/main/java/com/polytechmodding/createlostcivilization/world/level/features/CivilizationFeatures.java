@@ -6,25 +6,28 @@ import com.polytechmodding.createlostcivilization.world.trees.CypressRootFoliage
 import com.polytechmodding.createlostcivilization.world.trees.CypressTrunkPlacer;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
-import java.util.function.Supplier;
-
-public final class ConfiguredFeatures {
-
-    private static final DeferredRegister<ConfiguredFeature<?, ?>> featuresRegistry =
-            DeferredRegister.create(CreateLostCivilization.MOD_ID, Registries.CONFIGURED_FEATURE);
-
+public final class CivilizationFeatures {
     private static final DeferredRegister<TrunkPlacerType<?>> trunkPlacerTypeRegistry =
             DeferredRegister.create(CreateLostCivilization.MOD_ID, Registries.TRUNK_PLACER_TYPE);
 
@@ -54,26 +57,39 @@ public final class ConfiguredFeatures {
     
   */
 
-    public static final RegistrySupplier<ConfiguredFeature<?, ?>> CYPRESS_TREE =
-            featuresRegistry.register("cypress_tree", () -> new ConfiguredFeature<>(Feature.TREE,
-                    new TreeConfiguration.TreeConfigurationBuilder(
-                            BlockStateProvider.simple(Blocks.NETHERITE_BLOCK), // Trunk block provider
-                            new CypressTrunkPlacer(8, 3, 0), // places a straight trunk
-                            BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
-                            new CypressFoliagePlacer(ConstantInt.of(5), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
-                            new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
-                    ).build()));
+    public static ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE =
+            ResourceKey.create(Registries.CONFIGURED_FEATURE,
+                    new ResourceLocation(CreateLostCivilization.MOD_ID, "cypress_tree"));
 
-    public static final RegistrySupplier<TrunkPlacerType<?>> CYPRESS_TRUNK_PLACER =
+
+    public static RegistrySupplier<TrunkPlacerType<?>> CYPRESS_TRUNK_PLACER =
             trunkPlacerTypeRegistry.register("cypress_trunk_placer",
-                    () -> new TrunkPlacerType<>(CypressTrunkPlacer.CODEC));
+            () -> new TrunkPlacerType<>(CypressTrunkPlacer.CODEC));
 
-    public static final RegistrySupplier<FoliagePlacerType<?>> CYPRESS_ROOT_FOLIAGE_PLACER =
+    public static RegistrySupplier<FoliagePlacerType<?>> CYPRESS_ROOT_FOLIAGE_PLACER =
             foliagePlacerTypeRegistry.register("cypress_root_foliage_placer",
                     () -> new FoliagePlacerType<>(CypressRootFoliagePlacer.CODEC));
 
-    public static final RegistrySupplier<FoliagePlacerType<?>> CYPRESS_FOLIAGE_PLACER =
+    public static RegistrySupplier<FoliagePlacerType<?>> CYPRESS_FOLIAGE_PLACER =
             foliagePlacerTypeRegistry.register("cypress_foliage_placer",
                     () -> new FoliagePlacerType<>(CypressFoliagePlacer.CODEC));
 
+
+    public static void register() {
+        foliagePlacerTypeRegistry.register();
+        trunkPlacerTypeRegistry.register();
+        decorationPlacerTypeRegistry.register();
+    }
+
+    public static void bootstrapType(BootstapContext<ConfiguredFeature<?, ?>> context) {
+        HolderGetter<Block> holderGetter = context.lookup(Registries.BLOCK);
+        context.register(CYPRESS_TREE, new ConfiguredFeature<>(Feature.TREE,
+                new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(Blocks.NETHERITE_BLOCK), // Trunk block provider
+                        new CypressTrunkPlacer(13, 2, 14), // places a straight trunk
+                        BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
+                        new CypressFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
+                        new TwoLayersFeatureSize(2, 0, 2) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+                ).build()));
+    }
 }

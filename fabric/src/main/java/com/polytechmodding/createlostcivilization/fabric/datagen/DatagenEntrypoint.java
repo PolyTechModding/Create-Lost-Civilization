@@ -5,6 +5,7 @@ import static com.polytechmodding.createlostcivilization.CreateLostCivilization.
 import com.arcaneengineering.arcanelib.fabric.datagen.ArcaneDataGenerator;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
 import com.polytechmodding.createlostcivilization.world.level.dimension.CivilizationDimensions;
+import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
@@ -23,5 +24,7 @@ public class DatagenEntrypoint implements DataGeneratorEntrypoint {
   public void buildRegistry(RegistrySetBuilder registryBuilder) {
     registryBuilder.add(Registries.DIMENSION_TYPE,
                         CivilizationDimensions::bootstrapType);
+    registryBuilder.add(Registries.CONFIGURED_FEATURE,
+            CivilizationFeatures::bootstrapType);
   }
 }
