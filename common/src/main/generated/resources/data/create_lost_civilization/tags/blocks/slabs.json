@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "create_lost_civilization:cypress_roots",
-    "create_lost_civilization:stripped_cypress_roots",
-    "create_lost_civilization:cypress_slab"
+    "create_lost_civilization:cypress_slab",
+    "create_lost_civilization:stripped_cypress_roots"
   ]
 }

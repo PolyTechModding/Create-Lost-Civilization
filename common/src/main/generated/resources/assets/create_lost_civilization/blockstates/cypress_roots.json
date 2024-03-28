@@ -4,7 +4,7 @@
       "model": "create_lost_civilization:block/cypress/roots"
     },
     "type=double": {
-      "model": "create_lost_civilization:block/cypress/planks"
+      "model": "create_lost_civilization:block/cypress/log"
     },
     "type=top": {
       "model": "create_lost_civilization:block/cypress/roots_top"
