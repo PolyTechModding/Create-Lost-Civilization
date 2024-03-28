@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "create_lost_civilization:cypress_stairs"
+    "create_lost_civilization:stripped_cypress_roots_corner",
+    "create_lost_civilization:cypress_stairs",
+    "create_lost_civilization:cypress_roots_corner"
   ]
 }

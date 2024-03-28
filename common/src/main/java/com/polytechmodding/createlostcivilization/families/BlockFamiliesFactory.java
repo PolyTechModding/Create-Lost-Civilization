@@ -36,6 +36,10 @@ public final class BlockFamiliesFactory
             .addWoodBlock(Variants.STRIPPED_WOOD)
             .addBlock(Variants.TRAPDOOR)
             .addWoodBlock(Variants.WOOD)
+            .addWoodBlock(CivilizationVariants.LOG_ROOTS)
+            .addWoodBlock(CivilizationVariants.STRIPPED_LOG_ROOTS)
+            .addWoodBlock(CivilizationVariants.LOG_ROOTS_CORNER)
+            .addWoodBlock(CivilizationVariants.STRIPPED_LOG_ROOTS_CORNER)
             .addGrower(Variants.SAPLING, null,
                     () -> CivilizationFeatures.CYPRESS_TREE, null, null)
             .addItem(Variants.BOAT)

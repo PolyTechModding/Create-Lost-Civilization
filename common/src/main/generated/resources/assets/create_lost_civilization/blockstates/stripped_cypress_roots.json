@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "create_lost_civilization:block/cypress/stripped_roots"
+    },
+    "type=double": {
+      "model": "create_lost_civilization:block/cypress/planks"
+    },
+    "type=top": {
+      "model": "create_lost_civilization:block/cypress/stripped_roots_top"
+    }
+  }
+}

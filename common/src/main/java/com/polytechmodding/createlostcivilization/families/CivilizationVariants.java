@@ -67,18 +67,18 @@ public class CivilizationVariants {
 
         @Override
         public BlockVariant<WoodType> getStrippedVariant(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
-            return STRIPPED_ROOTS_CORNER;
+            return STRIPPED_LOG_ROOTS_CORNER;
         }
 
         @Override
         public Supplier<? extends Block> getStrippedBlock(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
-            return family.get(STRIPPED_ROOTS_CORNER);
+            return family.get(STRIPPED_LOG_ROOTS_CORNER);
         }
     }
 
-    public static StrippedRootsCorner STRIPPED_ROOTS_CORNER = new StrippedRootsCorner();
+    public static StrippedLogRootsCorner STRIPPED_LOG_ROOTS_CORNER = new StrippedLogRootsCorner();
 
-    public static class StrippedRootsCorner implements BlockVariant<WoodType>, FlammableVariant,StrippedVariant {
+    public static class StrippedLogRootsCorner implements BlockVariant<WoodType>, FlammableVariant,StrippedVariant {
         @Override
         public String getPrefix(ResourceKey<DimensionType> dimension) {
             return "stripped_";
@@ -122,6 +122,109 @@ public class CivilizationVariants {
         @Override
         public BlockVariant<WoodType> getStrippableVariant(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
             return LOG_ROOTS_CORNER;
+        }
+    }
+
+    public static LogRoots LOG_ROOTS = new LogRoots();
+
+    public static class LogRoots implements BlockVariant<WoodType>, FlammableVariant, StrippableVariant {
+        @Override
+        public String getPrefix(ResourceKey<DimensionType> dimension) {
+            return "";
+        }
+
+        @Override
+        public String getSuffix(ResourceKey<DimensionType> dimension) {
+            return "_roots";
+        }
+
+        @Override
+        public Supplier<? extends Block> getBlockSupplier(RegistrationContext context, WoodType blockSetType, ResourceKey<DimensionType> dimension, Supplier<? extends SimpleParticleType> particleOption, MapColor color, BlockFamily family, Supplier<? extends Block> baseBlock) {
+            return Variants.SLAB.getBlockSupplier(context, blockSetType.setType(), dimension, particleOption, color, family, baseBlock);
+        }
+
+        @Override
+        public Supplier<? extends Item> getItemSupplier(WoodType blockSetType, Supplier<? extends Block> associatedBlock, ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return Variants.SLAB.getItemSupplier(blockSetType.setType(), associatedBlock, dimension, family, context);
+        }
+
+        @Override
+        public List<TagKey<Block>> getAssociatedBlockTag(RegistrationContext context) {
+            return Variants.SLAB.getAssociatedBlockTag(context);
+        }
+
+        @Override
+        public LootTable.Builder getLootTable(RegistrationContext context, BlockFamily blockFamily, Supplier<? extends Item> associatedItem) {
+            return Variants.SLAB.getLootTable(context, blockFamily, associatedItem);
+        }
+
+        @Override
+        public int getBurnChance() {
+            return Variants.SLAB.getBurnChance();
+        }
+
+        @Override
+        public int getSpreadChance() {
+            return Variants.SLAB.getSpreadChance();
+        }
+
+        @Override
+        public BlockVariant<WoodType> getStrippedVariant(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return STRIPPED_LOG_ROOTS;
+        }
+
+        @Override
+        public Supplier<? extends Block> getStrippedBlock(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return family.get(STRIPPED_LOG_ROOTS);
+        }
+    }
+
+    public static StrippedLogRoots STRIPPED_LOG_ROOTS = new StrippedLogRoots();
+
+    public static class StrippedLogRoots implements BlockVariant<WoodType>, FlammableVariant,StrippedVariant {
+        @Override
+        public String getPrefix(ResourceKey<DimensionType> dimension) {
+            return "stripped_";
+        }
+
+        @Override
+        public String getSuffix(ResourceKey<DimensionType> dimension) {
+            return "_roots";
+        }
+
+        @Override
+        public Supplier<? extends Block> getBlockSupplier(RegistrationContext context, WoodType blockSetType, ResourceKey<DimensionType> dimension, Supplier<? extends SimpleParticleType> particleOption, MapColor color, BlockFamily family, Supplier<? extends Block> baseBlock) {
+            return Variants.SLAB.getBlockSupplier(context, blockSetType.setType(), dimension, particleOption, color, family, baseBlock);
+        }
+
+        @Override
+        public Supplier<? extends Item> getItemSupplier(WoodType blockSetType, Supplier<? extends Block> associatedBlock, ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return Variants.SLAB.getItemSupplier(blockSetType.setType(), associatedBlock, dimension, family, context);
+        }
+
+        @Override
+        public List<TagKey<Block>> getAssociatedBlockTag(RegistrationContext context) {
+            return Variants.SLAB.getAssociatedBlockTag(context);
+        }
+
+        @Override
+        public LootTable.Builder getLootTable(RegistrationContext context, BlockFamily blockFamily, Supplier<? extends Item> associatedItem) {
+            return Variants.SLAB.getLootTable(context, blockFamily, associatedItem);
+        }
+
+        @Override
+        public int getBurnChance() {
+            return Variants.SLAB.getBurnChance();
+        }
+
+        @Override
+        public int getSpreadChance() {
+            return Variants.SLAB.getSpreadChance();
+        }
+
+        @Override
+        public BlockVariant<WoodType> getStrippableVariant(ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return LOG_ROOTS;
         }
     }
 }
