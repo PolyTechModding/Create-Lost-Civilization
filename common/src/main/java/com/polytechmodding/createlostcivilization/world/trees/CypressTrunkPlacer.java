@@ -63,6 +63,7 @@ public class CypressTrunkPlacer extends TrunkPlacer {
 
     private void placeLogIfFreeWithOffset(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, BlockPos.MutableBlockPos mutableBlockPos, TreeConfiguration treeConfiguration, BlockPos blockPos, int i, int j, int k) {
         mutableBlockPos.setWithOffset(blockPos, i, j, k);
+        treeConfiguration.trunkProvider.getState(randomSource, blockPos);
         this.placeLogIfFree(levelSimulatedReader, biConsumer, randomSource, mutableBlockPos, treeConfiguration);
     }
 }

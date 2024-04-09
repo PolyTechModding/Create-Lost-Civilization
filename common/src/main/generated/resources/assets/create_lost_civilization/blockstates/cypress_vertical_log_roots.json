@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=east,single_slab=false": {
+      "model": "create_lost_civilization:block/cypress/log"
+    },
+    "facing=east,single_slab=true": {
+      "model": "create_lost_civilization:block/cypress/vertical_log_roots",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=north,single_slab=false": {
+      "model": "create_lost_civilization:block/cypress/log"
+    },
+    "facing=north,single_slab=true": {
+      "model": "create_lost_civilization:block/cypress/vertical_log_roots",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,single_slab=false": {
+      "model": "create_lost_civilization:block/cypress/log"
+    },
+    "facing=south,single_slab=true": {
+      "model": "create_lost_civilization:block/cypress/vertical_log_roots",
+      "uvlock": true
+    },
+    "facing=west,single_slab=false": {
+      "model": "create_lost_civilization:block/cypress/log"
+    },
+    "facing=west,single_slab=true": {
+      "model": "create_lost_civilization:block/cypress/vertical_log_roots",
+      "uvlock": true,
+      "y": 90
+    }
+  }
+}

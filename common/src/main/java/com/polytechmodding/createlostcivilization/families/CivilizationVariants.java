@@ -6,12 +6,19 @@ import com.arcaneengineering.arcanelib.config.attributes.StrippableVariant;
 import com.arcaneengineering.arcanelib.config.attributes.StrippedVariant;
 import com.arcaneengineering.arcanelib.config.types.BlockVariant;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
+import com.arcaneengineering.arcanelib.datagen.helpers.LootTableGenerators;
 import com.arcaneengineering.arcanelib.registry.BlockFamily;
+import com.polytechmodding.createlostcivilization.world.blocks.VerticalSlabBlock;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.MapColor;
@@ -21,6 +28,57 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class CivilizationVariants {
+
+    public static VerticalLogRoots VERTICAL_LOG_ROOTS = new VerticalLogRoots();
+
+    public static class VerticalLogRoots implements BlockVariant<WoodType>, FlammableVariant {
+
+        @Override
+        public int getBurnChance() {
+            return Variants.SLAB.getBurnChance();
+        }
+
+        @Override
+        public int getSpreadChance() {
+            return Variants.SLAB.getSpreadChance();
+        }
+
+        @Override
+        public String getPrefix(ResourceKey<DimensionType> dimension) {
+            return "";
+        }
+
+        @Override
+        public String getSuffix(ResourceKey<DimensionType> dimension) {
+            return "_vertical_log_roots";
+        }
+
+        @Override
+        public String getName(ResourceKey<DimensionType> dimension, String name) {
+            return BlockVariant.super.getName(dimension, name);
+        }
+
+        @Override
+        public Supplier<? extends Block> getBlockSupplier(RegistrationContext context, WoodType blockSetType, ResourceKey<DimensionType> dimension, Supplier<? extends SimpleParticleType> particleOption, MapColor color, BlockFamily family, Supplier<? extends Block> baseBlock) {
+            return () -> new VerticalSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f),
+                    SoundEvents.WOOD_PLACE);
+        }
+
+        @Override
+        public Supplier<? extends Item> getItemSupplier(WoodType blockSetType, Supplier<? extends Block> associatedBlock, ResourceKey<DimensionType> dimension, BlockFamily family, RegistrationContext context) {
+            return () -> new BlockItem(associatedBlock.get(), context.getItemPropertiesInContext(new Item.Properties()));
+        }
+
+        @Override
+        public List<TagKey<Block>> getAssociatedBlockTag(RegistrationContext context) {
+            return List.of();
+        }
+
+        @Override
+        public LootTable.Builder getLootTable(RegistrationContext context, BlockFamily blockFamily, Supplier<? extends Item> associatedItem) {
+            return LootTableGenerators.createNormalBlockDrop(associatedItem.get(), false);
+        }
+    }
 
     public static LogRootsCorner LOG_ROOTS_CORNER = new LogRootsCorner();
 

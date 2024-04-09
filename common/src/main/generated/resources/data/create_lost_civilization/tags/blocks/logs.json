@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
+    "create_lost_civilization:stripped_cypress_wood",
     "create_lost_civilization:cypress_wood",
-    "create_lost_civilization:cypress_log",
     "create_lost_civilization:stripped_cypress_log",
-    "create_lost_civilization:stripped_cypress_wood"
+    "create_lost_civilization:cypress_log"
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "create_lost_civilization:block/vertical_slab_all",
+  "textures": {
+    "all": "create_lost_civilization:block/cypress/log"
+  }
+}
