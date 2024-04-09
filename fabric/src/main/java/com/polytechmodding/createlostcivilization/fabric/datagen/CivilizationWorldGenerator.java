@@ -17,6 +17,7 @@ public class CivilizationWorldGenerator extends FabricDynamicRegistryProvider {
   @Override
   protected void configure(HolderLookup.Provider registries, Entries entries) {
     entries.addAll(registries.lookupOrThrow(Registries.DIMENSION_TYPE));
+    entries.addAll(registries.lookupOrThrow(Registries.CONFIGURED_FEATURE));
   }
 
   @Override
