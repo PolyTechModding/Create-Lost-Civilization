@@ -9,25 +9,28 @@ import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.material.MapColor;
 
 public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFactory {
+
+    public static BlockFamily BLUE_KELP_FAMILY, RED_KELP_FAMILY, ORANGE_KELP_FAMILY, PINK_KELP_FAMILY, YELLOW_KELP_FAMILY;
+
     @Override
     public BlockFamilies create(RegistrationContext registrationContext) {
         BlockFamilies blockFamilies = new BlockFamilies(registrationContext);
 
-        registerKelpWoodType(blockFamilies, registrationContext, "blue", MapColor.COLOR_BLUE);
+        BLUE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "blue", MapColor.COLOR_BLUE);
 
-        registerKelpWoodType(blockFamilies, registrationContext, "red", MapColor.COLOR_RED);
+        RED_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "red", MapColor.COLOR_RED);
 
-        registerKelpWoodType(blockFamilies, registrationContext, "orange", MapColor.COLOR_ORANGE);
+        ORANGE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "orange", MapColor.COLOR_ORANGE);
 
-        registerKelpWoodType(blockFamilies, registrationContext, "pink", MapColor.COLOR_PINK);
+        PINK_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "pink", MapColor.COLOR_PINK);
 
-        registerKelpWoodType(blockFamilies, registrationContext, "yellow", MapColor.COLOR_YELLOW);
+        YELLOW_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "yellow", MapColor.COLOR_YELLOW);
 
         return blockFamilies;
     }
 
-    private static void registerKelpWoodType(BlockFamilies blockFamilies, RegistrationContext registrationContext, String color, MapColor MC){
-        blockFamilies.register(blockFamilies
+    private static BlockFamily registerKelpWoodType(BlockFamilies blockFamilies, RegistrationContext registrationContext, String color, MapColor MC){
+        return blockFamilies.register(blockFamilies
                 .getOrganicBuilder(
                         BlockFamilies.getOverworldWoodType(registrationContext, color+"_kelp"),
                         MC, color+"_kelp", BuiltinDimensionTypes.OVERWORLD, true)

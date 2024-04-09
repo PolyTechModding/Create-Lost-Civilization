@@ -1,4 +1,4 @@
-// 1.20.4	2024-04-08T11:29:15.0218739	Create Lost Civilization/Tags for minecraft:block
+// 1.20.4	2024-04-09T14:34:38.1347171	Create Lost Civilization/Tags for minecraft:block
 e95bc32e197c0d98136fdd95315ea6f52cd45b98 data\create_lost_civilization\tags\blocks\saplings.json
 39d9684b802a4e47277731e7cdc53df4fbf30421 data\minecraft\tags\blocks\wall_signs.json
 1e5e6ece3ca4b73bcf832d887c87a89ea8325519 data\minecraft\tags\blocks\wall_hanging_signs.json
@@ -15,15 +15,15 @@ ff949c82ead8c8f99bccb908b14a1f52626ca4fc data\create_lost_civilization\tags\bloc
 35604e3f8150cd2958c375147788f3793c5f143a data\create_lost_civilization\tags\blocks\standing_signs.json
 ec306fa826810068789dd14b22c3df31897bd899 data\create_lost_civilization\tags\blocks\wall_hanging_signs.json
 e0f179adb49691e1ce5677abb7810d32eb3d835d data\minecraft\tags\blocks\doors.json
-7ebb6bf4961f0bb711f382abbc40ba55adb2485c data\create_lost_civilization\tags\blocks\logs.json
+b32b7f92a7ca72ce9bcb113b0c68a01cc46abe65 data\create_lost_civilization\tags\blocks\logs.json
 047bab5dfd4d56fb4b20b511ecca4ea3f24add3b data\minecraft\tags\blocks\fences.json
 cd213672f92bcf438e8d2e3ab41c0b97c59ba0da data\minecraft\tags\blocks\pressure_plates.json
 138443d56d2585cd3819d1246057e5029705f761 data\create_lost_civilization\tags\blocks\planks.json
 68ec72acebde80e1eb245560aab6ee393b1f707e data\minecraft\tags\blocks\buttons.json
 575f05ebbfe9b711b8adb253f735220e7a9ac15a data\create_lost_civilization\tags\blocks\pressure_plates.json
 89c02b35f9d0cb82972a3b9567ae4849f995913b data\create_lost_civilization\tags\blocks\buttons.json
-b2eedca2336de5418b2a9626f1538698b1a99bb7 data\minecraft\tags\blocks\stairs.json
 292d6742d97f35a5e20c98ec340bd5b03c0311b0 data\minecraft\tags\blocks\logs.json
+b2eedca2336de5418b2a9626f1538698b1a99bb7 data\minecraft\tags\blocks\stairs.json
 74ca832db5f00f3efdcf98ddaa4ccc9d21ec988c data\create_lost_civilization\tags\blocks\trapdoors.json
 7579959d342e7024970dd9948227b05eb869e88a data\minecraft\tags\blocks\trapdoors.json
 8df323e4e93a73d79940a23766b687148d676854 data\minecraft\tags\blocks\slabs.json

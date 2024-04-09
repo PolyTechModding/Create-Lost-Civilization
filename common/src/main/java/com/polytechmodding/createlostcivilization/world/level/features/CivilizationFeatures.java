@@ -1,6 +1,8 @@
 package com.polytechmodding.createlostcivilization.world.level.features;
 
+import com.arcaneengineering.arcanelib.config.Variants;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
+import com.polytechmodding.createlostcivilization.families.BlockFamiliesFactory;
 import com.polytechmodding.createlostcivilization.world.trees.KelpFoliagePlacer;
 import com.polytechmodding.createlostcivilization.world.trees.KelpTrunkPlacer;
 import dev.architectury.registry.registries.DeferredRegister;
@@ -76,10 +78,10 @@ public final class CivilizationFeatures {
         HolderGetter<Block> holderGetter = context.lookup(Registries.BLOCK);
         context.register(KELP_TREE, new ConfiguredFeature<>(Feature.TREE,
                 new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(Blocks.NETHERITE_BLOCK), // Trunk block provider
-                        new KelpTrunkPlacer(13, 2, 14), // places a straight trunk
-                        BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
-                        new KelpFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
+                        BlockStateProvider.simple(BlockFamiliesFactory.RED_KELP_FAMILY.get(Variants.LOG).get()), // Trunk block provider
+                        new KelpTrunkPlacer(13, 2, 14), // places a spiral trunk
+                        BlockStateProvider.simple(BlockFamiliesFactory.RED_KELP_FAMILY.get(Variants.LEAVES).get()), // Foliage block provider
+                        new KelpFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves
                         new TwoLayersFeatureSize(2, 0, 2) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
                 ).build()));
     }

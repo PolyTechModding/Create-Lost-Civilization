@@ -1,4 +1,4 @@
-// 1.20.4	2024-04-08T11:29:15.0403162	Create Lost Civilization/Block Loot Tables
+// 1.20.4	2024-04-09T14:34:38.1517221	Create Lost Civilization/Block Loot Tables
 7023f7cbce75c8c870a5f9725401340561568e16 data\create_lost_civilization\loot_tables\blocks\blue_kelp_wood.json
 7d8f44d64036ce0fdc856386cd065ae9d4dad959 data\create_lost_civilization\loot_tables\blocks\pink_kelp_button.json
 357e6fb5f8a58fca381f522fe09dd11bf43929eb data\create_lost_civilization\loot_tables\blocks\red_kelp_bookshelf.json
@@ -92,5 +92,5 @@ a9a62116af409d9c43d1963a1476eb2e2ffc23af data\create_lost_civilization\loot_tabl
 5383ea0e403324957469dd32b41c4a63759cd7b0 data\create_lost_civilization\loot_tables\blocks\pink_kelp_door.json
 466c91f4b44560137a22f68e08fd33ee9263a8d3 data\create_lost_civilization\loot_tables\blocks\blue_kelp_pressure_plate.json
 3878c128ad517d2b31cbac6d807a097a20b29077 data\create_lost_civilization\loot_tables\blocks\orange_kelp_fence.json
-8dc2ea31af9eae1c17691dd089e7df9a0a1be1da data\create_lost_civilization\loot_tables\blocks\orange_kelp_wall_sign.json
 c43a09c0d84cd49ac2228e099ef747ce6d20348a data\create_lost_civilization\loot_tables\blocks\orange_kelp_door.json
+8dc2ea31af9eae1c17691dd089e7df9a0a1be1da data\create_lost_civilization\loot_tables\blocks\orange_kelp_wall_sign.json

@@ -4,6 +4,7 @@ import static com.polytechmodding.createlostcivilization.CreateLostCivilization.
 
 import com.arcaneengineering.arcanelib.fabric.datagen.ArcaneDataGenerator;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
+import com.polytechmodding.createlostcivilization.client.CivilizationClientVariants;
 import com.polytechmodding.createlostcivilization.world.level.dimension.CivilizationDimensions;
 import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -15,6 +16,7 @@ public class DatagenEntrypoint implements DataGeneratorEntrypoint {
   @Override
   public void
   onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+    CivilizationClientVariants.loadClass();
     ArcaneDataGenerator.onInitializeDataGenerator(fabricDataGenerator, CONTEXT);
     fabricDataGenerator.createPack().addProvider(
         CivilizationWorldGenerator::new);

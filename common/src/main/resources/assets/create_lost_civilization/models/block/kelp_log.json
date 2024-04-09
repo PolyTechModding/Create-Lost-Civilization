@@ -1,12 +1,13 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/block",
 	"textures": {
-		"0": "red_kelp_log_stripes",
-		"1": "red_kelp_log_center",
-		"2": "red_kelp_log_top_edge",
-		"3": "red_kelp_log_bottom_edge",
-		"4": "red_kelp_log_side_edge",
-		"particle": "red_kelp_log_stripes"
+		"0": "#particle",
+		"1": "#texture",
+		"2": "#top",
+		"3": "#bottom",
+		"4": "#side",
+		"particle": "#particle"
 	},
 	"elements": [
 		{
