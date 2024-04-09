@@ -3,6 +3,8 @@ package com.polytechmodding.createlostcivilization;
 import com.arcaneengineering.arcanelib.ArcaneLib;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.polytechmodding.createlostcivilization.families.BlockFamiliesFactory;
+import com.polytechmodding.createlostcivilization.world.CivilizationRegistry;
+import com.polytechmodding.createlostcivilization.world.fluids.FluidRegistry;
 import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,7 +16,9 @@ public class CreateLostCivilization
 	public static RegistrationContext CONTEXT;
 
 	public static void init(@NotNull ArcaneLib arcaneLib) {
+		FluidRegistry.register();
 		CONTEXT = arcaneLib.apiInit(MOD_ID, new BlockFamiliesFactory(), new ArrayList<>());
+		CivilizationRegistry.loadClass(CONTEXT);
 		CivilizationFeatures.register();
 	}
 }
