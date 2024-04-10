@@ -91,8 +91,7 @@ public abstract class EntityMixin implements AirEntity {
           value = "INVOKE",
           target = "Lnet/minecraft/world/entity/Entity;updateFluidOnEyes()V",
           shift = At.Shift.AFTER))
-  public void
-  injectTick(CallbackInfo ci) {
+  public void injectTick(CallbackInfo ci) {
     // logger.info("Injection was called");
     createLostCivilization$updateInAirStateAndDoAirPushing();
     createLostCivilization$updateAirOnEyes();

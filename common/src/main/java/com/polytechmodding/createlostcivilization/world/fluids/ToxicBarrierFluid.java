@@ -55,7 +55,7 @@ public abstract class ToxicBarrierFluid extends BarrierFluid {
 
         @Override
         public int getAmount(FluidState fluidState) {
-            return 8;
+            return 4;
         }
 
         @Override
