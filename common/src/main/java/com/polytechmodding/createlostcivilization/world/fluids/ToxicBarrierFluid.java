@@ -1,9 +1,7 @@
 package com.polytechmodding.createlostcivilization.world.fluids;
 
 import com.polytechmodding.createlostcivilization.world.CivilizationRegistry;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;

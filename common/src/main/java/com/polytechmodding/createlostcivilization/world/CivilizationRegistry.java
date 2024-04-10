@@ -3,7 +3,6 @@ package com.polytechmodding.createlostcivilization.world;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.polytechmodding.createlostcivilization.world.blocks.NoBucketLiquidBlock;
 import com.polytechmodding.createlostcivilization.world.fluids.FluidRegistry;
-import com.polytechmodding.createlostcivilization.world.fluids.ToxicBarrierFluid;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
