@@ -1,22 +1,23 @@
 package com.polytechmodding.createlostcivilization.families;
 
 import com.arcaneengineering.arcanelib.config.Variants;
-import com.arcaneengineering.arcanelib.config.types.GrowerVariant;
 import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.arcaneengineering.arcanelib.registry.BlockFamilies;
+import com.arcaneengineering.arcanelib.registry.BlockFamily;
 import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
 
 public final class BlockFamiliesFactory
     implements BlockFamilies.BlockFamiliesFactory {
+
+  public static BlockFamily CYPRESS_FAMILY;
+
   @Override
   public BlockFamilies create(RegistrationContext registrationContext) {
     BlockFamilies blockFamilies = new BlockFamilies(registrationContext);
 
-    blockFamilies.register(blockFamilies
+    CYPRESS_FAMILY = blockFamilies.register(blockFamilies
             .getOrganicBuilder(BlockFamilies.getOverworldWoodType(registrationContext, "cypress"),
                     MapColor.TERRACOTTA_GREEN, "cypress", BuiltinDimensionTypes.OVERWORLD, true)
             .addBlock(Variants.BUTTON)

@@ -16,7 +16,8 @@ public class CivilizationRegistry {
 
     public static void loadClass(RegistrationContext context) {
         TOXIC_BARRIER_FLUID = context.createBlock(() -> new NoBucketLiquidBlock(
-                (FlowingFluid) FluidRegistry.STILL_TOXIC_BARRIER_FLUID.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)),
+                (FlowingFluid) FluidRegistry.STILL_TOXIC_BARRIER_FLUID.get(),
+                        BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)),
                 "toxic_barrier_fluid");
     }
 }

@@ -1,9 +1,15 @@
 package com.polytechmodding.createlostcivilization.world.level.features;
 
+import com.arcaneengineering.arcanelib.config.Variants;
+import com.mojang.serialization.Codec;
 import com.polytechmodding.createlostcivilization.CreateLostCivilization;
+import com.polytechmodding.createlostcivilization.families.BlockFamiliesFactory;
+import com.polytechmodding.createlostcivilization.families.CivilizationVariants;
+import com.polytechmodding.createlostcivilization.world.CivilizationRegistry;
 import com.polytechmodding.createlostcivilization.world.trees.CypressFoliagePlacer;
 import com.polytechmodding.createlostcivilization.world.trees.CypressRootFoliagePlacer;
-import com.polytechmodding.createlostcivilization.world.trees.CypressTrunkPlacer;
+import com.polytechmodding.createlostcivilization.world.trees.FancyRootedTreeConfiguration;
+import com.polytechmodding.createlostcivilization.world.trees.FancyRootedTrunkPlacer;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.HolderGetter;
@@ -14,15 +20,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+
+import java.util.List;
+import java.util.Optional;
 
 public final class CivilizationFeatures {
     private static final DeferredRegister<TrunkPlacerType<?>> trunkPlacerTypeRegistry =
@@ -61,7 +70,7 @@ public final class CivilizationFeatures {
 
     public static RegistrySupplier<TrunkPlacerType<?>> CYPRESS_TRUNK_PLACER =
             trunkPlacerTypeRegistry.register("cypress_trunk_placer",
-            () -> new TrunkPlacerType<>(CypressTrunkPlacer.CODEC));
+            () -> new TrunkPlacerType<>(FancyRootedTrunkPlacer.CODEC));
 
     public static RegistrySupplier<FoliagePlacerType<?>> CYPRESS_ROOT_FOLIAGE_PLACER =
             foliagePlacerTypeRegistry.register("cypress_root_foliage_placer",
@@ -73,20 +82,36 @@ public final class CivilizationFeatures {
 
 
     public static void register() {
+        featureRegistry.register();
         foliagePlacerTypeRegistry.register();
         trunkPlacerTypeRegistry.register();
         decorationPlacerTypeRegistry.register();
     }
 
+    private static final DeferredRegister<Feature<?>> featureRegistry =
+            DeferredRegister.create(CreateLostCivilization.MOD_ID, Registries.FEATURE);
+
+    public static RegistrySupplier<Feature<TreeConfiguration>> TREE =
+            featureRegistry.register("fancy_rooted_tree",
+                    () -> new TreeFeature((Codec<TreeConfiguration>)((Object) FancyRootedTreeConfiguration.CODEC)));
+
     public static void bootstrapType(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<Block> holderGetter = context.lookup(Registries.BLOCK);
-        context.register(CYPRESS_TREE, new ConfiguredFeature<>(Feature.TREE,
-                new TreeConfiguration.TreeConfigurationBuilder(
-                        BlockStateProvider.simple(Blocks.NETHERITE_BLOCK), // Trunk block provider
-                        new CypressTrunkPlacer(13, 2, 14), // places a straight trunk
+        context.register(CYPRESS_TREE, new ConfiguredFeature<>(TREE.get(),
+                new FancyRootedTreeConfiguration(
+                        BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(Variants.LOG).get()), // Trunk block provider
+                        new FancyRootedTrunkPlacer(13, 2, 14), // places a straight trunk
                         BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
                         new CypressFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
-                        new TwoLayersFeatureSize(2, 0, 2) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
-                ).build()));
+                        Optional.empty(),
+                        BlockStateProvider.simple(Blocks.DIRT),
+                        new TwoLayersFeatureSize(2, 0, 2), // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+                        List.of(), false, false,
+                        BlockStateProvider.simple(CivilizationRegistry.TOXIC_BARRIER_FLUID.get()),
+                        BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(CivilizationVariants.LOG_ROOTS_CORNER).get()),
+                        BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(CivilizationVariants.LOG_ROOTS).get()),
+                        BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(CivilizationVariants.VERTICAL_LOG_ROOTS).get()),
+                        0
+                )));
     }
 }

@@ -14,9 +14,10 @@ public class CreateLostCivilizationFabricClient implements ClientModInitializer 
         FluidRenderHandlerRegistry.INSTANCE.register(
                 FluidRegistry.STILL_TOXIC_BARRIER_FLUID.get(), FluidRegistry.FLOWING_TOXIC_BARRIER_FLUID.get(),
                 new SimpleFluidRenderHandler(
-                new ResourceLocation("minecraft:block/water_still"),
-                new ResourceLocation("minecraft:block/water_flow"),
-                0x4CC248
+                    new ResourceLocation("minecraft:block/water_still"),
+                    new ResourceLocation("minecraft:block/water_flow"),
+                    new ResourceLocation("minecraft:block/water_overlay"),
+                        0xaf6cff
         ));
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderType.translucent(),

@@ -40,10 +40,10 @@ dependencies {
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-common-api:${project.properties["jei_version"]}")
     modCompileOnlyApi("mezz.jei:jei-${project.properties["minecraft_version"]}-fabric-api:${project.properties["jei_version"]}")
 
-    modLocalRuntime("maven.modrinth:sodium:mc${project.properties["minecraft_version"]}-${project.properties["sodium_version"]}")
-    modLocalRuntime("maven.modrinth:iris:${project.properties["iris_version"]}+${project.properties["minecraft_version"]}")
+    // modLocalRuntime("maven.modrinth:sodium:mc${project.properties["minecraft_version"]}-${project.properties["sodium_version"]}")
+    // modLocalRuntime("maven.modrinth:iris:${project.properties["iris_version"]}+${project.properties["minecraft_version"]}")
     modLocalRuntime("maven.modrinth:modmenu:${project.properties["modmenu_version"]}")
-    modLocalRuntime("maven.modrinth:reeses-sodium-options:mc${project.properties["minecraft_version"]}-${project.properties["sodium_options_version"]}")
+    // modLocalRuntime("maven.modrinth:reeses-sodium-options:mc${project.properties["minecraft_version"]}-${project.properties["sodium_options_version"]}")
     modLocalRuntime("maven.modrinth:wthit:${project.properties["fabric_wthit_version"]}")
     modLocalRuntime("maven.modrinth:badpackets:fabric-${project.properties["badpackets_version"]}")
 
