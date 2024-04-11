@@ -100,7 +100,7 @@ public final class CivilizationFeatures {
         context.register(CYPRESS_TREE, new ConfiguredFeature<>(TREE.get(),
                 new FancyRootedTreeConfiguration(
                         BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(Variants.LOG).get()), // Trunk block provider
-                        new FancyRootedTrunkPlacer(13, 2, 14), // places a straight trunk
+                        new FancyRootedTrunkPlacer(2, 2, 2), // places a straight trunk
                         BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
                         new CypressFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
                         Optional.empty(),

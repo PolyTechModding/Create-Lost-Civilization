@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 public class FancyRootedTrunkPlacer extends TrunkPlacer {
 
@@ -39,9 +40,18 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
         } catch (ClassCastException e) {
             throw new RuntimeException("TreeConfiguration is not a FancyRootedTreeConfiguration");
         }
+        BlockPos below = blockPos.below();
+        for(int x = -6; x <= 6; x++) {
+            for(int z = -6; z <= 6; z++) {
+                if(!((x >= -2 && x <= 2) && (z >= -2 && z <= 2))) {
+                    setFluidAt(levelSimulatedReader, biConsumer, randomSource, blockPos.offset(x, 0, z), fancyRootedTreeConfiguration);
+                }
+                TrunkPlacer.setDirtAt(levelSimulatedReader, biConsumer, randomSource, below.offset(x, 0, z), treeConfiguration);
+            }
+        }
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        for (int j = -1; j < i; j++) {
-            if(j < 2) {
+        for (int j = 0; j < i; j++) {
+            if(j < 3) {
                 for(int x = -2; x <= 2; x++) {
                     for(int z = -2; z <= 2; z++) {
                         this.placeLogIfFreeWithOffset(levelSimulatedReader, biConsumer, randomSource, mutableBlockPos, treeConfiguration, blockPos, x, j, z);
@@ -56,14 +66,6 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
             }
 
         }
-        BlockPos waterBelow = blockPos.below();
-        BlockPos below = blockPos.below().below();
-        for(int x = -5; x <= 5; x++) {
-            for(int z = -5; z <= 5; z++) {
-                setFluidAt(levelSimulatedReader, biConsumer, randomSource, waterBelow.offset(x, 0, z), fancyRootedTreeConfiguration);
-                TrunkPlacer.setDirtAt(levelSimulatedReader, biConsumer, randomSource, below.offset(x, 0, z), treeConfiguration);
-            }
-        }
         return ImmutableList.of(new FoliagePlacer.FoliageAttachment(blockPos.above(i), 0, true));
     }
 
@@ -73,7 +75,6 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
 
     private void placeLogIfFreeWithOffset(LevelSimulatedReader levelSimulatedReader, BiConsumer<BlockPos, BlockState> biConsumer, RandomSource randomSource, BlockPos.MutableBlockPos mutableBlockPos, TreeConfiguration treeConfiguration, BlockPos blockPos, int i, int j, int k) {
         mutableBlockPos.setWithOffset(blockPos, i, j, k);
-        treeConfiguration.trunkProvider.getState(randomSource, blockPos);
-        this.placeLog(levelSimulatedReader, biConsumer, randomSource, mutableBlockPos, treeConfiguration);
+        biConsumer.accept(mutableBlockPos, (BlockState)Function.identity().apply(treeConfiguration.trunkProvider.getState(randomSource, blockPos)));
     }
 }
