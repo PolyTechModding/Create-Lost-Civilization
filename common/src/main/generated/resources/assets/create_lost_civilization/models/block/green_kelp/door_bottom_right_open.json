@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "create_lost_civilization:block/green_kelp/door_bottom",
+    "top": "create_lost_civilization:block/green_kelp/door_top"
+  }
+}

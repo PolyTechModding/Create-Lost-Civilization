@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "create_lost_civilization:red_kelp_leaves",
+    "create_lost_civilization:blue_kelp_leaves",
+    "create_lost_civilization:yellow_kelp_leaves",
+    "create_lost_civilization:orange_kelp_leaves",
+    "create_lost_civilization:pink_kelp_leaves",
+    "create_lost_civilization:green_kelp_leaves"
+  ]
+}

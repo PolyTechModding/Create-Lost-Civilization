@@ -17,6 +17,9 @@ public class CivilizationModelTemplates {
             CivilizationModelTemplates.create("kelp_log",
                     TextureSlot.TEXTURE, TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE, TextureSlot.PARTICLE);
 
+    public static final ArcaneModelTemplate KELP_STRIPPED_LOG =
+            CivilizationModelTemplates.create("kelp_stripped_log",
+                    TextureSlot.PARTICLE, TextureSlot.SIDE);
     private static ArcaneModelTemplate create(String blockModelLocation, TextureSlot ... requiredSlots) {
         return new ArcaneModelTemplate(Optional.of(new ResourceLocation(CreateLostCivilization.MOD_ID,
                 "block/" + blockModelLocation)), Optional.empty(), requiredSlots);

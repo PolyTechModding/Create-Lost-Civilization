@@ -1,9 +1,9 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "stripped_pink_kelp_log_middle",
-		"3": "stripped_pink_kelp_log_edge",
-		"particle": "stripped_pink_kelp_log_middle"
+		"2": "#particle",
+		"3": "#side",
+		"particle": "#particle"
 	},
 	"elements": [
 		{

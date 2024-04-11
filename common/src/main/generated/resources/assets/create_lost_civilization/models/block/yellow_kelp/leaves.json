@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "create_lost_civilization:block/yellow_kelp/leaves"
+  }
+}

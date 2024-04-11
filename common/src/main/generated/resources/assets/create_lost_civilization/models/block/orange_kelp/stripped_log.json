@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "create_lost_civilization:block/kelp_stripped_log",
   "textures": {
-    "end": "create_lost_civilization:block/orange_kelp/stripped_log_top",
-    "side": "create_lost_civilization:block/orange_kelp/stripped_log"
+    "particle": "create_lost_civilization:block/orange_kelp/stripped_log_middle",
+    "side": "create_lost_civilization:block/orange_kelp/stripped_log_edge"
   }
 }

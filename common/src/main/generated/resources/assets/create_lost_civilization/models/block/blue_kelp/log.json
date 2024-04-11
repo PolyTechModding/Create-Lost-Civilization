@@ -1,7 +1,10 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "create_lost_civilization:block/kelp_log",
   "textures": {
-    "end": "create_lost_civilization:block/blue_kelp/log_top",
-    "side": "create_lost_civilization:block/blue_kelp/log"
+    "bottom": "create_lost_civilization:block/blue_kelp/log_bottom_edge",
+    "particle": "create_lost_civilization:block/blue_kelp/log_stripes",
+    "side": "create_lost_civilization:block/blue_kelp/log_side_edge",
+    "texture": "create_lost_civilization:block/blue_kelp/log",
+    "top": "create_lost_civilization:block/blue_kelp/log_top_edge"
   }
 }

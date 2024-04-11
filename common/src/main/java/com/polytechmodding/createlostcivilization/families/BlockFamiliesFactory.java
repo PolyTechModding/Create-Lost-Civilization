@@ -10,7 +10,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFactory {
 
-    public static BlockFamily BLUE_KELP_FAMILY, RED_KELP_FAMILY, ORANGE_KELP_FAMILY, PINK_KELP_FAMILY, YELLOW_KELP_FAMILY;
+    public static BlockFamily BLUE_KELP_FAMILY, RED_KELP_FAMILY, ORANGE_KELP_FAMILY, PINK_KELP_FAMILY, YELLOW_KELP_FAMILY, GREEN_KELP_FAMILY;
 
     @Override
     public BlockFamilies create(RegistrationContext registrationContext) {
@@ -26,6 +26,8 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
 
         YELLOW_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "yellow", MapColor.COLOR_YELLOW);
 
+        GREEN_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "green", MapColor.COLOR_GREEN);
+
         return blockFamilies;
     }
 
@@ -38,6 +40,7 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
                         .addWoodBlock(Variants.STRIPPED_LOG)
                         .addWoodBlock(Variants.WOOD)
                         .addWoodBlock(Variants.STRIPPED_WOOD)
+                        .addBlock(Variants.LEAVES)
 
                         .addWoodBlock(Variants.BOOKSHELF)
 

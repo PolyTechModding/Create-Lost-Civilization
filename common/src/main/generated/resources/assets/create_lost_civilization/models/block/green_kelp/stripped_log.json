@@ -1,0 +1,7 @@
+{
+  "parent": "create_lost_civilization:block/kelp_stripped_log",
+  "textures": {
+    "particle": "create_lost_civilization:block/green_kelp/stripped_log_middle",
+    "side": "create_lost_civilization:block/green_kelp/stripped_log_edge"
+  }
+}
