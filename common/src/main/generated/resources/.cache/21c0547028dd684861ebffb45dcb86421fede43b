@@ -1,4 +1,4 @@
-// 1.20.4	2024-04-11T15:47:56.9173195	Create Lost Civilization/Tags for minecraft:block
+// 1.20.4	2024-04-12T14:59:49.8421795	Create Lost Civilization/Tags for minecraft:block
 fc4363c2f648ca874709dd9a7dcee3a3d4c89148 data\create_lost_civilization\tags\blocks\saplings.json
 39d9684b802a4e47277731e7cdc53df4fbf30421 data\minecraft\tags\blocks\wall_signs.json
 1e5e6ece3ca4b73bcf832d887c87a89ea8325519 data\minecraft\tags\blocks\wall_hanging_signs.json
@@ -15,8 +15,8 @@ ee0303884e2467de56d2fab9a299f22345d0257c data\minecraft\tags\blocks\leaves.json
 8c5913dee014ea5ee03168e9e901bfaa9abe286f data\create_lost_civilization\tags\blocks\ceiling_hanging_signs.json
 481a5ac3625852f8ae4da22c297b02ea433785e6 data\create_lost_civilization\tags\blocks\wall_hanging_signs.json
 e0f179adb49691e1ce5677abb7810d32eb3d835d data\minecraft\tags\blocks\doors.json
+75e114fac8e0cebe8fa4dd93088e96fc4b49c41e data\create_lost_civilization\tags\blocks\logs.json
 047bab5dfd4d56fb4b20b511ecca4ea3f24add3b data\minecraft\tags\blocks\fences.json
-1e437ac350e31d4aa54b6acf82fc06288dcdb3a9 data\create_lost_civilization\tags\blocks\logs.json
 cd213672f92bcf438e8d2e3ab41c0b97c59ba0da data\minecraft\tags\blocks\pressure_plates.json
 d6984ee4a5ec3edd34318a929a20e94ddbe6870b data\create_lost_civilization\tags\blocks\planks.json
 68ec72acebde80e1eb245560aab6ee393b1f707e data\minecraft\tags\blocks\buttons.json
@@ -24,8 +24,8 @@ c7fa90b6248247b3ec59e3a82d5f360697475fca data\create_lost_civilization\tags\bloc
 065d5956d4e76b4a6f4d28fe041246f580225cbc data\create_lost_civilization\tags\blocks\buttons.json
 b2eedca2336de5418b2a9626f1538698b1a99bb7 data\minecraft\tags\blocks\stairs.json
 292d6742d97f35a5e20c98ec340bd5b03c0311b0 data\minecraft\tags\blocks\logs.json
-3cc9cfbc24233cd3fd4a9a0e62058fecb971fc4d data\create_lost_civilization\tags\blocks\trapdoors.json
 7579959d342e7024970dd9948227b05eb869e88a data\minecraft\tags\blocks\trapdoors.json
+3cc9cfbc24233cd3fd4a9a0e62058fecb971fc4d data\create_lost_civilization\tags\blocks\trapdoors.json
 a8b1e3bb65b1fbf28b74a7d520a23ea5e3ff2ac9 data\create_lost_civilization\tags\blocks\leaves.json
 8df323e4e93a73d79940a23766b687148d676854 data\minecraft\tags\blocks\slabs.json
 daa63172341360df1679fa5f39eb03f1c14a9ce7 data\create_lost_civilization\tags\blocks\wall_signs.json

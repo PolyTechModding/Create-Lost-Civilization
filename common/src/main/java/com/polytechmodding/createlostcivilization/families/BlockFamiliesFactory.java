@@ -5,7 +5,9 @@ import com.arcaneengineering.arcanelib.context.RegistrationContext;
 import com.arcaneengineering.arcanelib.registry.BlockFamilies;
 import com.arcaneengineering.arcanelib.registry.BlockFamily;
 import com.polytechmodding.createlostcivilization.world.level.features.CivilizationFeatures;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
 
 public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFactory {
@@ -16,22 +18,22 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
     public BlockFamilies create(RegistrationContext registrationContext) {
         BlockFamilies blockFamilies = new BlockFamilies(registrationContext);
 
-        BLUE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "blue", MapColor.COLOR_BLUE);
+        BLUE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "blue", MapColor.COLOR_BLUE, CivilizationFeatures.BLUE_KELP_TREE);
 
-        RED_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "red", MapColor.COLOR_RED);
+        RED_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "red", MapColor.COLOR_RED, CivilizationFeatures.RED_KELP_TREE);
 
-        ORANGE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "orange", MapColor.COLOR_ORANGE);
+        ORANGE_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "orange", MapColor.COLOR_ORANGE, CivilizationFeatures.ORANGE_KELP_TREE);
 
-        PINK_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "pink", MapColor.COLOR_PINK);
+        PINK_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "pink", MapColor.COLOR_PINK, CivilizationFeatures.PINK_KELP_TREE);
 
-        YELLOW_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "yellow", MapColor.COLOR_YELLOW);
+        YELLOW_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "yellow", MapColor.COLOR_YELLOW, CivilizationFeatures.YELLOW_KELP_TREE);
 
-        GREEN_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "green", MapColor.COLOR_GREEN);
+        GREEN_KELP_FAMILY = registerKelpWoodType(blockFamilies, registrationContext, "green", MapColor.COLOR_GREEN, CivilizationFeatures.GREEN_KELP_TREE);
 
         return blockFamilies;
     }
 
-    private static BlockFamily registerKelpWoodType(BlockFamilies blockFamilies, RegistrationContext registrationContext, String color, MapColor MC){
+    private static BlockFamily registerKelpWoodType(BlockFamilies blockFamilies, RegistrationContext registrationContext, String color, MapColor MC, ResourceKey<ConfiguredFeature<?, ?>> treeType){
         return blockFamilies.register(blockFamilies
                 .getOrganicBuilder(
                         BlockFamilies.getOverworldWoodType(registrationContext, color+"_kelp"),
@@ -63,7 +65,7 @@ public final class BlockFamiliesFactory implements BlockFamilies.BlockFamiliesFa
 
                         .addBlock(Variants.BUTTON)
                         .addBlock(Variants.PRESSURE_PLATE)
-                        .addGrower(Variants.SAPLING, null, () -> CivilizationFeatures.KELP_TREE, null, null)
+                        .addGrower(Variants.SAPLING, null, () -> treeType, null, null)
                 );
     }
 }
