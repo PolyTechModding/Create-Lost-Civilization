@@ -32,9 +32,9 @@
     "ignore_vines": false,
     "minimum_size": {
       "type": "minecraft:two_layers_feature_size",
-      "limit": 2,
+      "limit": 1,
       "lower_size": 0,
-      "upper_size": 2
+      "upper_size": 1
     },
     "slab_provider": {
       "type": "minecraft:simple_state_provider",
@@ -61,13 +61,16 @@
     "trunk_placer": {
       "type": "create_lost_civilization:cypress_trunk_placer",
       "base_height": 13,
-      "height_rand_a": 2,
-      "height_rand_b": 14
+      "height_rand_a": 1,
+      "height_rand_b": 1
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "create_lost_civilization:cypress_log"
+        "Name": "create_lost_civilization:cypress_log",
+        "Properties": {
+          "axis": "y"
+        }
       }
     },
     "vertical_slab_provider": {

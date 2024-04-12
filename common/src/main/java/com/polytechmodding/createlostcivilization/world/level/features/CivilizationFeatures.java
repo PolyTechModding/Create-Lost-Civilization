@@ -100,12 +100,12 @@ public final class CivilizationFeatures {
         context.register(CYPRESS_TREE, new ConfiguredFeature<>(TREE.get(),
                 new FancyRootedTreeConfiguration(
                         BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(Variants.LOG).get()), // Trunk block provider
-                        new FancyRootedTrunkPlacer(2, 2, 2), // places a straight trunk
+                        new FancyRootedTrunkPlacer(13, 1, 1), // places a straight trunk
                         BlockStateProvider.simple(Blocks.DIAMOND_BLOCK), // Foliage block provider
                         new CypressFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0)), // places leaves as a blob (radius, offset from trunk, height)
                         Optional.empty(),
                         BlockStateProvider.simple(Blocks.DIRT),
-                        new TwoLayersFeatureSize(2, 0, 2), // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+                        new TwoLayersFeatureSize(1, 0, 1), // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
                         List.of(), false, false,
                         BlockStateProvider.simple(CivilizationRegistry.TOXIC_BARRIER_FLUID.get()),
                         BlockStateProvider.simple(BlockFamiliesFactory.CYPRESS_FAMILY.get(CivilizationVariants.LOG_ROOTS_CORNER).get()),
