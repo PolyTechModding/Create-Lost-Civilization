@@ -39,7 +39,7 @@ public class CivilizationClientVariants {
         public void modelDefinition(Block block, BlockFamily blockFamily, BlockModelGenerators generators,
                                     BlockVariant<?> blockVariant, TextureMapping baseBlockTextureMapping,
                                     ResourceLocation fullBlock, boolean withItem) {
-            ResourceLocation logLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/cypress/log");
+            ResourceLocation logLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/"+ blockFamily.getBaseName() + "/log");
             ResourceLocation resourceLocation = CivilizationModelTemplates.VERTICAL_SLAB_ALL
                     .create(ClientVariants.getClientBlockVariant(blockFamily, blockVariant).getRenderType(), blockFamily, block, (new TextureMapping()).put(TextureSlot.ALL, logLocation), generators.modelOutput);
             BlockStateGenerator stateGenerator = MultiVariantGenerator.multiVariant(block).with(PropertyDispatch.properties(BlockStateProperties.HORIZONTAL_FACING, VerticalSlabBlock.SINGLE)
@@ -138,10 +138,10 @@ public class CivilizationClientVariants {
                             .put(TextureSlot.SIDE, ArcaneModelTemplate.getArcaneResourceLocationDefault(texturedModel, blockFamily))
                             .put(TextureSlot.END, ArcaneModelTemplate.getArcaneResourceLocationDefault(texturedModel, blockFamily)), ModelTemplates.CUBE_COLUMN)
                     .get(blockFamily.get(Variants.LOG).get()).getMapping();
-            ResourceLocation logLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/cypress/log");
+            ResourceLocation woodLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/"+ blockFamily.getBaseName() + "/wood");
             ResourceLocation resourceLocation = ArcaneModelTemplates.SLAB_BOTTOM.create(ClientVariants.getClientBlockVariant(blockFamily, blockVariant).getRenderType(), blockFamily, block, textureMapping, generators.modelOutput);
             ResourceLocation resourceLocation1 = ArcaneModelTemplates.SLAB_TOP.create(ClientVariants.getClientBlockVariant(blockFamily, blockVariant).getRenderType(), blockFamily, block, textureMapping, generators.modelOutput);
-            generators.blockStateOutput.accept(BlockModelGenerators.createSlab(block, resourceLocation, resourceLocation1, logLocation));
+            generators.blockStateOutput.accept(BlockModelGenerators.createSlab(block, resourceLocation, resourceLocation1, woodLocation));
             if(withItem) {
                 generators.delegateItemModel(block, resourceLocation);
             }
@@ -159,7 +159,7 @@ public class CivilizationClientVariants {
                             .put(TextureSlot.SIDE, ArcaneModelTemplate.getArcaneResourceLocationDefault(texturedModel, blockFamily))
                             .put(TextureSlot.END, ArcaneModelTemplate.getArcaneResourceLocationDefault(texturedModel, blockFamily)), ModelTemplates.CUBE_COLUMN)
                     .get(blockFamily.get(Variants.STRIPPED_LOG).get()).getMapping();
-            ResourceLocation logLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/cypress/stripped_log");
+            ResourceLocation logLocation = new ResourceLocation(CreateLostCivilization.MOD_ID, "block/"+ blockFamily.getBaseName() + "/stripped_log");
             ResourceLocation resourceLocation = ArcaneModelTemplates.SLAB_BOTTOM.create(ClientVariants.getClientBlockVariant(blockFamily, blockVariant).getRenderType(), blockFamily, block, textureMapping, generators.modelOutput);
             ResourceLocation resourceLocation1 = ArcaneModelTemplates.SLAB_TOP.create(ClientVariants.getClientBlockVariant(blockFamily, blockVariant).getRenderType(), blockFamily, block, textureMapping, generators.modelOutput);
             generators.blockStateOutput.accept(BlockModelGenerators.createSlab(block, resourceLocation, resourceLocation1, logLocation));
