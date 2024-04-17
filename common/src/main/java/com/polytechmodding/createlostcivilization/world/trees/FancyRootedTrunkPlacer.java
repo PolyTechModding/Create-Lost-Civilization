@@ -88,10 +88,10 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
         for(BlockPos corner : corners) {
             int randomCorner = random.nextInt(3);
             switch (randomCorner) {
-                case 0: placeCornerType2(level, blockSetter, random, corner, config);
-                case 1: placeCornerType2(level, blockSetter, random, corner, config);
-                case 2: placeCornerType2(level, blockSetter, random, corner, config);
-                case 3: placeCornerType2(level, blockSetter, random, corner, config);
+                case 0: placeCornerType3(level, blockSetter, random, corner, config);
+                case 1: placeCornerType3(level, blockSetter, random, corner, config);
+                case 2: placeCornerType3(level, blockSetter, random, corner, config);
+                case 3: placeCornerType3(level, blockSetter, random, corner, config);
             }
         }
     }
@@ -128,7 +128,7 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
         setCornerAt(level, blockSetter, random, toNorthTwo.offset(0, 1, 0),
                 config, directions[0].getOpposite(), Half.BOTTOM, StairsShape.STRAIGHT);
         setSlabAt(level, blockSetter, random, toNorthTwo.relative(directions[1].getOpposite(), 1),
-                config, SlabType.DOUBLE);
+                config, SlabType.DOUBLE, false);
 
         BlockPos toNorthThree = pos.relative(directions[0], 3);
         setCornerAt(level, blockSetter, random, toNorthThree.offset(0, 0, 0),
@@ -154,6 +154,37 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
         setCornerAt(level, blockSetter, random, toEast.relative(directions[0], 1),
                 config, directions[0].getOpposite(), Half.BOTTOM, StairsShape.STRAIGHT);
 
+    }
+
+    protected void placeCornerType3(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos, FancyRootedTreeConfiguration config) {
+        Direction[] directions = getCornerDirections(level, config, random, pos);
+        placeLogIfFreeWithOffset(level, blockSetter, random, new BlockPos.MutableBlockPos(), config, pos, 0,0,0);
+        setSlabAt(level, blockSetter, random, pos.offset(0, 1, 0),
+                config, SlabType.BOTTOM, false);
+        setCornerAt(level, blockSetter, random, pos.relative(directions[0].getOpposite(), 1),
+                config, directions[0], Half.BOTTOM, StairsShape.STRAIGHT);
+        setCornerAt(level, blockSetter, random, pos.relative(directions[1].getOpposite(), 1),
+                config, directions[1], Half.BOTTOM, StairsShape.STRAIGHT);
+
+        BlockPos toEast = pos.relative(directions[1], 1);
+        placeLogIfFreeWithOffset(level, blockSetter, random, new BlockPos.MutableBlockPos(), config, toEast, 0,0,0);
+        placeLogIfFreeWithOffset(level, blockSetter, random, new BlockPos.MutableBlockPos(), config, toEast, 0,1,0);
+        setCornerAt(level, blockSetter, random, toEast.offset(0, 2, 0),
+                config, directions[0], Half.BOTTOM, StairsShape.STRAIGHT);
+        setCornerAt(level, blockSetter, random, toEast.relative(directions[0].getOpposite(), 1),
+                config, directions[0], Half.BOTTOM, StairsShape.STRAIGHT);
+        setSlabAt(level, blockSetter, random, toEast.relative(directions[1], 1),
+                config, SlabType.TOP, true);
+
+        BlockPos toSouth = pos.relative(directions[0], 1);
+        placeLogIfFreeWithOffset(level, blockSetter, random, new BlockPos.MutableBlockPos(), config, toSouth, 0,0,0);
+        placeLogIfFreeWithOffset(level, blockSetter, random, new BlockPos.MutableBlockPos(), config, toSouth, 0,1,0);
+        setCornerAt(level, blockSetter, random, toSouth.offset(0, 2, 0),
+                config, directions[1], Half.BOTTOM, StairsShape.STRAIGHT);
+        setCornerAt(level, blockSetter, random, toSouth.relative(directions[1].getOpposite(), 1),
+                config, directions[1], Half.BOTTOM, StairsShape.STRAIGHT);
+        setCornerAt(level, blockSetter, random, toSouth.relative(directions[0], 1),
+                config, directions[0].getOpposite(), Half.BOTTOM, StairsShape.STRAIGHT);
     }
 
     protected Direction[] getCornerDirections(LevelSimulatedReader level, TreeConfiguration config, RandomSource random, BlockPos pos) {
@@ -201,8 +232,10 @@ public class FancyRootedTrunkPlacer extends TrunkPlacer {
     }
 
     protected static void setSlabAt(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos,
-                                    FancyRootedTreeConfiguration config, SlabType slabType) {
-        blockSetter.accept(pos, config.slabProvider.getState(random, pos).setValue(BlockStateProperties.SLAB_TYPE, slabType));
+                                    FancyRootedTreeConfiguration config, SlabType slabType, boolean waterlogged) {
+        blockSetter.accept(pos, config.slabProvider.getState(random, pos)
+                .setValue(BlockStateProperties.SLAB_TYPE, slabType)
+                .setValue(BlockStateProperties.WATERLOGGED, waterlogged));
     }
 
     protected static void setVerticalSlabAt(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos, FancyRootedTreeConfiguration config) {
